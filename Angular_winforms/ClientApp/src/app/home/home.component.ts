@@ -31,6 +31,76 @@ export class HomeComponent implements OnInit {
   Supports_for_piping_DN15_100: Supports_for_piping_DN15_100;
   Supports_for_piping_DN15_40: Supports_for_piping_DN15_40;
 
+  idx: number[100];
+  DN_index: number[100];
+  Length: double[100];
+  Start_floor: double[100];
+  End_floor: double[100];
+  Floor_height: double[100];
+  Shift: double[100];
+
+  num_calcs: number = 0;
+  num_floors: number = 0;
+
+  enable_lower_comp: boolean = false;
+  enable_higher_comp: boolean = false;
+
+  lower_length: double = 0;
+  higher_length: double = 0;
+
+  lower_extension: double = 0;
+  higher_extension: double = 0;
+
+  lower_automatic: number = 0;
+  higher_automatic: number = 0;
+
+  j_l: number = 0;
+  jj_l: number = 0;
+
+  j_h: number = 0;
+  jj_h: number = 0;
+  jmax_h: number = 0;
+
+  saved: number = 0;
+
+  lower_floor: double = 0;
+  higher_floor: double = 0;
+
+  k: double = 1.05;
+  C: double = 0;
+  Tmax: double = 95;
+  Tmin: double = -10;
+
+  comp_near_hard: boolean = false;
+
+  
+  auto_change_C: boolean = false;
+
+  Comp_floors: number[100];
+  Hard_floors: number[100];
+  Comp_DN: number[100];
+  Hard_DN: number[100];
+  ActualShift: double[100];
+  FloorsIdx: number[100, 2];
+  comp_count: number = 0;
+  hard_count: number = 0;
+  acts_count: number = 0;
+
+  Comp_art_base: string = "";
+  Hard_art_base: string = "";
+  Connect_type: string = "";
+
+  lic: number = 1;
+
+  name: string = "";
+
+  act: number = 0;
+
+  project_created: boolean = false;
+
+  project_optimized: boolean = false;
+
+
 
 
   //myForm: FormGroup;
