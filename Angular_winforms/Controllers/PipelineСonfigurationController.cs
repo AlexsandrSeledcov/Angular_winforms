@@ -33,7 +33,7 @@ namespace Angular_winforms.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class PipelineСonfigurationController : ControllerBase
     {
 
         private static readonly string[] Summaries = new[]
@@ -43,7 +43,7 @@ namespace Angular_winforms.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public PipelineСonfigurationController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
         }
@@ -65,6 +65,9 @@ namespace Angular_winforms.Controllers
             })
             .ToArray();
         }
+
+
+
         /*
                 [HttpGet]
                 public void click()

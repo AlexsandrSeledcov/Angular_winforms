@@ -1,0 +1,183 @@
+<div class="col-md-12">
+  <form [formGroup]="myForm">
+    <div class="title">
+    </div>
+    <div class="settings">
+      <p class="margin-left1">Параметры вертикального трубопровода:</p>
+      <br />
+    </div>
+
+    <!--
+    <div class="combobox">
+      <input type="text"
+             placeholder="Введите тип трубопровода"
+             class="combobox-input"
+             [(ngModel)]="inputItem"
+             (ngModelChange)="getFilteredList()"
+             (keyup)="onKeyPress($event)"
+             (blur)="toggleListDisplay(0)"
+             (focus)="toggleListDisplay(1)"
+             [ngClass]="{'error': showError}">
+      <i *ngIf="showError"
+         class="error-text">Invalid Selection.</i>
+
+
+      <div class="combobox-options" *ngIf="!listHidden">
+        <list-item *ngFor="let item of filteredList;let i = index"
+                   [ngClass]="{'selected': i===selectedIndex}"
+                   (click)="selectItem(i)">
+          {{item}}
+        </list-item>
+      </div>
+    </div>
+  -->
+    <label class="margin-left2">Тип трубопровода</label>
+    <br />
+    <input class="margin-left3 combobox-input" type="text" id="pipelineType" placeholder="Введите тип трубопровода" formControlName="pipelineType" />              <!--[(ngModel)]="inputItem" (ngModelChange)="getFilteredList()" ( keyup)="onKeyPress($event)" (blur)="toggleListDisplay(0)" (focus)="toggleListDisplay(1)" [ngClass]="{'error': showError}" -->               <!--Выподающий список (https://codepen.io/dunmaksim/pen/Pqdvyp)-->
+    <br />
+    <br />
+    <label class="margin-left0">Возможные варианты видов трубопровода: </label>
+    <br />
+    <label class="margin-left1">Тип трубопровода может быть трех типов: </label>
+    <br />
+    <label class="margin-left2">Водоснабжение, резьбовое соединение</label>
+    <br />
+    <label class="margin-left3">Отопление, сварное соединение</label>
+    <br />
+    <label class="margin-left4">Водоснабжение, грувлок соединение </label>
+    <br />
+    <br />
+    <br />
+
+    <label class="margin-left2">Коэффициент запаса, %</label>
+    <br />
+    <input class="margin-left3 form-control" type="text" id="safetyFactor" placeholder="Введите коэффициент запаса, %" formControlName="safetyFactor" />
+    <label class="margin-left2">Суммарная погрешность задаваемых значений</label>
+    <br />
+    <br />
+
+    <label class="margin-left2">Группа стали и сплава</label>
+    <br />
+    <input class="margin-left3 form-control" type="text" id="steelАndАlloyGroup" placeholder="Введите группа стали и сплава" formControlName="steelАndАlloyGroup" />
+    <br />
+    <br />
+
+
+
+    <label class="margin-left2">ТКЛР, мм/м × ℃</label>
+    <br />
+    <input class="margin-left3 form-control" type="text" id="temperatureCoefficientOfLinearExpansion" placeholder="Введите Группа стали и сплава" formControlName="temperatureCoefficientOfLinearExpansion" />
+    <br />
+    <br />
+
+    <label class="margin-left2">Максимальная температура теплоносителя, °С</label>
+    <br />
+    <input class="margin-left3 form-control" type="text" id="maximumCoolanTemperature" placeholder="Введите максимальную температура теплоносителя, °С" formControlName="мaximumCoolanTemperature" />
+    <br />
+    <br />
+
+    <label class="margin-left2">Минимальная температура воздуха при монтаже, °С</label>
+    <br />
+    <input type="text" class="form-control margin-left3" id="мinimumАirTemperatureDuringInstallation" placeholder="Введите минимальную температуру воздуха при монтаже, °С" formControlName="мinimumАirTemperatureDuringInstallation" />
+    <label class="margin-left2">Согласно СП.60.13330.2020</label>
+    <br />
+    <br />
+
+    <button type="button" class="button margin-left3" (click)="showReference()">Справка</button> <!--(click)="showReference()"-->
+    <br />
+    <div *ngIf="showReferenceFlag">
+      <label class="margin-left2">Группа 1:</label>
+      <br />
+      <label class="margin-left2">
+        Ст3сп5, 10, 15, 15Л, 20, 20Л, 20К, 22К, 25, 25Л, 30, 35, 40, 45,
+        20Х, 30Х, 35Х, 40Х, 45Х,
+        12ХМ, 15ХМ, 20ХМ, 20ХМА, 20ХМЛ, 20ХМФЛ, 30ХМ,
+        30ХМА, 35ХМ, 35ХМА, 10Х2М, 12Х2М, 12МХ, 30ХГСА, 12Х1МФ,
+        25Х1МФ, 15Х1М1Ф, 15Х1М1ФЛ, 12Х2МФА, 12Х2МФА-А, 15Х2МФА,
+        15Х2МФА-А, 18Х2МФА, 25Х2МФА, 25Х2М1Ф, 25Х3МФА, 10Х2М1ФБ,
+        20Х1М1Ф1БР, 38ХН3МФА, 15Х2НМФА, 15Х2НМФА-А, 36Х2Н2МФА,
+        15Х3НМФА, 15Х3НМФА-А, 10ХСНД, 10ХН1М, 15ГС, 16ГС, 20ГСЛ,
+        09Г2С, 16ГНМА, 10ГН2МФА, 10ГН2МФАЛ
+      </label>
+      <br />  <br />
+      <label class="margin-left2">Группа 2:</label>
+      <br />
+      <label class="margin-left2">
+        08X13, 20X13, 30X13, 09Х17Н, 1Х12В2МФ, 14Х17Н2, 20Х12ВНМФ,
+        18Х12ВМБФР, 05Х12Н2М-ВИ, 05Х12Н2М, 05Х12Н2М-ВД, 06Х12Н3Д,
+        06Х12Н3ДЛ, 08Х14МФ, 06Х13Н7Д2, 07Х16Н4Б
+      </label>
+      <br />  <br />
+      <label class="margin-left2">Группа 3:</label>
+      <br /><label>
+        09Х18Н9, 10Х18Н9, 12X18Н9, 08Х18Н10Т, 12Х18Н9Т, 12Х18Н10Т,
+        08Х18Н12Т, 12Х18Н12Т, 12Х18Н9ТЛ, 03Х16Н9М2, 08Х16Н11М3,
+        10Х17Н13М2Т, 10Х18Н12М3Л, 12Х18Н12М3ТЛ, 09Х16Н15М3Б,
+        45Х14Н14В2М, Х18Н22В2Т2, 31Х19Н9МВБТ, 10Х11Н20Т3Р,
+        1Х16Н36МБТЮР, ХН35ВТЮ, ХН35ВТ-ВД, ХН35ВТ, 03Х21Н32М3Б,
+        0Х20Н46Б
+      </label>  <br />  <br />
+    </div>
+
+    <!--<a class="nav-link text-dark margin-left3" [routerLink]="['/pipeline-сonfiguration']">Конфигурация трубопровода</a>-->
+    <!--<button type="button" class="button">Конфигурация трубопровода</button>--> <!--(click)="showPipelineСonfiguration()"-->
+
+    <br />
+    <br />
+
+    <input class="margin-left3" #locateExpansionJointsCloseToFixedSupportsCheckBox type="checkbox" [checked]="locateExpansionJointsCloseToFixedSupports" (change)="onLocateExpansionJointsCloseToFixedSupportsChangedChanged(locateExpansionJointsCloseToFixedSupportsCheckBox.checked)" />
+    <label class="margin-left2">Расположить компенсаторы вблизи неподвижных опор</label>
+    <br />
+    <br />
+
+    <input class="form-control margin-left3" type="text" id="setСonfiguration" placeholder="-- Задайте конфигурацию --" formControlName="setСonfiguration" />
+    <br />
+    <br />
+
+    <button class="margin-left4 button" type="button" (click)="generateProject()">Сформировать проект</button>
+    <br />
+    <br />
+
+    <button class="margin-left4 button" type="button" (click)="clearForm()">Очистить форму</button>
+    <br />
+    <br />
+
+    <button class="margin-left4 button" type="button" (click)="updateProject()">Обновить проект</button>
+    <br />
+    <br />
+
+
+
+
+    <!--<a class="margin-left4 nav-link text-dark" [routerLink]="['/results']">Результаты</a>-->
+    <!-- <button type="button" class="button" (click)="showResults()">Результаты</button> -->
+    <br />
+    <br />
+
+    <button class="margin-left4 button" type="button" (click)="calculateLoad()">Рассчитать нагрузку</button>
+    <br />
+    <br />
+
+    <button class="margin-left4 button" type="button" (click)="optimizeProject()">Оптимизировать проект</button>
+    <br />
+    <br />
+
+
+    <label class="margin-left2">СТАТУС: </label>
+    <input class="margin-left3 form-control" type="text" id="status" placeholder="error_message" formControlName="status" />
+
+    <br />
+    <br />
+
+    <div *ngIf="showImg1">
+      <img src="/assets/img/1.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg2">
+      <img src="/assets/img/2.png" alt="image">
+    </div>
+
+
+  </form>
+</div>
+
