@@ -10,6 +10,10 @@ body {
 .input_width360 {
   width: 360px;
 }
+.input_width365 {
+  width: 365px;
+}
+
 
 .margin-left1 {
   margin-left: 1%
@@ -17,6 +21,7 @@ body {
 .margin-left2 {
   margin-left: 2%
 }
+
 .margin-left3 {
   margin-left: 3%
 }

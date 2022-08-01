@@ -232,7 +232,7 @@ export class DataService {
   static End_floor: any;
   static Floor_height: any;
   static Shift: any;
-  LengthField1: number;
+ // LengthField1: number;
   static Length: any;
   static DN_index: any;
   static enable_lower_comp: any;
@@ -269,13 +269,13 @@ export class DataService {
 
 
   //VerticalPipelineParameters/optimizeProject()/PipelineConfigurationComponent.arguments.dataGridView1.Rows.Add() {
-  Region: number;
-  PipelineDiameter: string;
-  LengthField: number;
-  GroundFloor: number;
-  FinalFloor: number;
-  FloorHeight: number;
-  AcceptableOffsetOfTheInsetPoints: number;
+  Region1: number;
+  PipelineDiameter1: string;
+  LengthField1: number;
+  GroundFloor1: number;
+  FinalFloor1: number;
+  FloorHeight1: number;
+  AcceptableOffsetOfTheInsetPoints1: number;
 
   Region2: number;
   PipelineDiameter2: string;

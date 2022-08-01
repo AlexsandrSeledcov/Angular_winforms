@@ -116,13 +116,13 @@ export class PipelineConfigurationComponent {
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private formBuilder: FormBuilder, private router: Router, private dataService: DataService) {
     this.myForm = formBuilder.group({                                       //                                   [ WinForm ]
-      "Region": [""],                                                       // Участок                           []
-      "PipelineDiameter": [""],                                             // Диаметр трубопровода              []                                                
-      "LengthField": [""],                                                  // Длина, м                          []
-      "GroundFloor": [""],                                                  // Начальный этаж                    []
-      "FinalFloor": [""],                                                   // Конечный этаж                     []
-      "FloorHeight": [""],                                                  // Высота этажа                      []
-      "AcceptableOffsetOfTheInsetPoints": [""],                             // Допустимое смещение точек врезки  []
+        "Region1": [""],                                                       // Участок                           []
+      "PipelineDiameter1": [""],                                             // Диаметр трубопровода              []                                                
+      "LengthField1": [""],                                                  // Длина, м                          []
+      "GroundFloor1": [""],                                                  // Начальный этаж                    []
+      "FinalFloor1": [""],                                                   // Конечный этаж                     []
+      "FloorHeight1": [""],                                                  // Высота этажа                      []
+      "AcceptableOffsetOfTheInsetPoints1": [""],                             // Допустимое смещение точек врезки  []
         "Region2": [""],                                                      // Участок                           []
       "PipelineDiameter2": [""],                                            // Диаметр трубопровода              []                                                
       "LengthField2": [""],                                                 // Длина, м                          []
@@ -336,6 +336,248 @@ export class PipelineConfigurationComponent {
   ngOnInit(): void {
 
     
+
+
+
+    (document.getElementById('Region1') as any).value = this.dataService.Region1;
+    (document.getElementById('PipelineDiameter1') as any).value = this.dataService.PipelineDiameter1;
+    (document.getElementById('LengthField1') as any).value = this.dataService.LengthField1;
+    (document.getElementById('GroundFloor1') as any).value = this.dataService.GroundFloor1;
+    (document.getElementById('FinalFloor1') as any).value = this.dataService.FinalFloor1;
+    (document.getElementById('FloorHeight1') as any).value = this.dataService.FloorHeight1;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints1') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints1;
+
+    (document.getElementById('Region2') as any).value = this.dataService.Region2;
+    (document.getElementById('PipelineDiameter2') as any).value = this.dataService.dn;
+    (document.getElementById('LengthField2') as any).value = this.dataService.PipelineDiameter2;
+    (document.getElementById('GroundFloor2') as any).value = this.dataService.GroundFloor2;
+    (document.getElementById('FinalFloor2') as any).value = this.dataService.FinalFloor2;
+    (document.getElementById('FloorHeight2') as any).value = this.dataService.FloorHeight2;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints2') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints2;
+
+    (document.getElementById('Region3') as any).value = this.dataService.Region3;
+    (document.getElementById('PipelineDiameter3') as any).value = this.dataService.PipelineDiameter3;
+    (document.getElementById('LengthField3') as any).value = this.dataService.LengthField3;
+    (document.getElementById('GroundFloor3') as any).value = this.dataService.GroundFloor3;
+    (document.getElementById('FinalFloor3') as any).value = this.dataService.FinalFloor3;
+    (document.getElementById('FloorHeight3') as any).value = this.dataService.FloorHeight3;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints3') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints3;
+
+    (document.getElementById('Region4') as any).value = this.dataService.Region4;
+    (document.getElementById('PipelineDiameter4') as any).value = this.dataService.PipelineDiameter4;
+    (document.getElementById('LengthField4') as any).value = this.dataService.LengthField4;
+    (document.getElementById('GroundFloor4') as any).value = this.dataService.GroundFloor4;
+    (document.getElementById('FinalFloor4') as any).value = this.dataService.FinalFloor4;
+    (document.getElementById('FloorHeight4') as any).value = this.dataService.FloorHeight4;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints4') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints4;
+
+    (document.getElementById('Region5') as any).value = this.dataService.Region5;
+    (document.getElementById('PipelineDiameter5') as any).value = this.dataService.PipelineDiameter5;
+    (document.getElementById('LengthField5') as any).value = this.dataService.LengthField5;
+    (document.getElementById('GroundFloor5') as any).value = this.dataService.GroundFloor5;
+    (document.getElementById('FinalFloor5') as any).value = this.dataService.FinalFloor5;
+    (document.getElementById('FloorHeight5') as any).value = this.dataService.FloorHeight5;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints5') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints5;
+
+    (document.getElementById('Region6') as any).value = this.dataService.Region6;
+    (document.getElementById('PipelineDiameter6') as any).value = this.dataService.PipelineDiameter6;
+    (document.getElementById('LengthField6') as any).value = this.dataService.LengthField6;
+    (document.getElementById('GroundFloor6') as any).value = this.dataService.GroundFloor6;
+    (document.getElementById('FinalFloor6') as any).value = this.dataService.FinalFloor6;
+    (document.getElementById('FloorHeight6') as any).value = this.dataService.FloorHeight6;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints6') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints6;
+
+    (document.getElementById('Region7') as any).value = this.dataService.Region7;
+    (document.getElementById('PipelineDiameter7') as any).value = this.dataService.PipelineDiameter7;
+    (document.getElementById('LengthField7') as any).value = this.dataService.LengthField7;
+    (document.getElementById('GroundFloor7') as any).value = this.dataService.GroundFloor7;
+    (document.getElementById('FinalFloor7') as any).value = this.dataService.FinalFloor7;
+    (document.getElementById('FloorHeight7') as any).value = this.dataService.FloorHeight7;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints7') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints7;
+
+    (document.getElementById('Region8') as any).value = this.dataService.Region8;
+    (document.getElementById('PipelineDiameter8') as any).value = this.dataService.PipelineDiameter8;
+    (document.getElementById('LengthField8') as any).value = this.dataService.LengthField8;
+    (document.getElementById('GroundFloor8') as any).value = this.dataService.GroundFloor8;
+    (document.getElementById('FinalFloor8') as any).value = this.dataService.FinalFloor8;
+    (document.getElementById('FloorHeight8') as any).value = this.dataService.FloorHeight8;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints8') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints8;
+
+    (document.getElementById('Region9') as any).value = this.dataService.Region9;
+    (document.getElementById('PipelineDiameter9') as any).value = this.dataService.PipelineDiameter9;
+    (document.getElementById('LengthField9') as any).value = this.dataService.LengthField9;
+    (document.getElementById('GroundFloor9') as any).value = this.dataService.GroundFloor9;
+    (document.getElementById('FinalFloor9') as any).value = this.dataService.FinalFloor9;
+    (document.getElementById('FloorHeight9') as any).value = this.dataService.FloorHeight9;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints9') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints9;
+
+    (document.getElementById('Region10') as any).value = this.dataService.Region10;
+    (document.getElementById('PipelineDiameter10') as any).value = this.dataService.PipelineDiameter10;
+    (document.getElementById('LengthField10') as any).value = this.dataService.LengthField10;
+    (document.getElementById('GroundFloor10') as any).value = this.dataService.GroundFloor10;
+    (document.getElementById('FinalFloor10') as any).value = this.dataService.FinalFloor10;
+    (document.getElementById('FloorHeight10') as any).value = this.dataService.FloorHeight10;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints10') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints10;
+
+    (document.getElementById('Region11') as any).value = this.dataService.Region11;
+    (document.getElementById('PipelineDiameter11') as any).value = this.dataService.PipelineDiameter11;
+    (document.getElementById('LengthField11') as any).value = this.dataService.LengthField11;
+    (document.getElementById('GroundFloor11') as any).value = this.dataService.GroundFloor11;
+    (document.getElementById('FinalFloor11') as any).value = this.dataService.FinalFloor21;
+    (document.getElementById('FloorHeight11') as any).value = this.dataService.FloorHeight11;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints11') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints11;
+
+    (document.getElementById('Region12') as any).value = this.dataService.Region12;
+    (document.getElementById('PipelineDiameter12') as any).value = this.dataService.PipelineDiameter12;
+    (document.getElementById('LengthField12') as any).value = this.dataService.LengthField12;
+    (document.getElementById('GroundFloor12') as any).value = this.dataService.GroundFloor12;
+    (document.getElementById('FinalFloor12') as any).value = this.dataService.FinalFloor12;
+    (document.getElementById('FloorHeight12') as any).value = this.dataService.FloorHeight12;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints12') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints12;
+
+    (document.getElementById('Region13') as any).value = this.dataService.Region13;
+    (document.getElementById('PipelineDiameter13') as any).value = this.dataService.PipelineDiameter13;
+    (document.getElementById('LengthField13') as any).value = this.dataService.LengthField13;
+    (document.getElementById('GroundFloor13') as any).value = this.dataService.GroundFloor13;
+    (document.getElementById('FinalFloor13') as any).value = this.dataService.FinalFloor13;
+    (document.getElementById('FloorHeight13') as any).value = this.dataService.FloorHeight13;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints13') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints13;
+
+    (document.getElementById('Region14') as any).value = this.dataService.Region14;
+    (document.getElementById('PipelineDiameter14') as any).value = this.dataService.PipelineDiameter14;
+    (document.getElementById('LengthField14') as any).value = this.dataService.LengthField14;
+    (document.getElementById('GroundFloor14') as any).value = this.dataService.GroundFloor14;
+    (document.getElementById('FinalFloor14') as any).value = this.dataService.FinalFloor14;
+    (document.getElementById('FloorHeight14') as any).value = this.dataService.FloorHeight14;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints14') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints14;
+
+    (document.getElementById('Region15') as any).value = this.dataService.Region15;
+    (document.getElementById('PipelineDiameter15') as any).value = this.dataService.PipelineDiameter15;
+    (document.getElementById('LengthField15') as any).value = this.dataService.LengthField15;
+    (document.getElementById('GroundFloor15') as any).value = this.dataService.GroundFloor15;
+    (document.getElementById('FinalFloor15') as any).value = this.dataService.FinalFloor15;
+    (document.getElementById('FloorHeight15') as any).value = this.dataService.FloorHeight15;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints15') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints15;
+
+    (document.getElementById('Region16') as any).value = this.dataService.Region16;
+    (document.getElementById('PipelineDiameter16') as any).value = this.dataService.PipelineDiameter16;
+    (document.getElementById('LengthField16') as any).value = this.dataService.LengthField16;
+    (document.getElementById('GroundFloor16') as any).value = this.dataService.GroundFloor16;
+    (document.getElementById('FinalFloor16') as any).value = this.dataService.FinalFloor16;
+    (document.getElementById('FloorHeight16') as any).value = this.dataService.FloorHeight16;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints16') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints16;
+
+    (document.getElementById('Region17') as any).value = this.dataService.Region17;
+    (document.getElementById('PipelineDiameter17') as any).value = this.dataService.PipelineDiameter17;
+    (document.getElementById('LengthField17') as any).value = this.dataService.LengthField17;
+    (document.getElementById('GroundFloor17') as any).value = this.dataService.GroundFloor17;
+    (document.getElementById('FinalFloor17') as any).value = this.dataService.FinalFloor17;
+    (document.getElementById('FloorHeight17') as any).value = this.dataService.FloorHeight17;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints17') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints17;
+
+    (document.getElementById('Region18') as any).value = this.dataService.Region18;
+    (document.getElementById('PipelineDiameter18') as any).value = this.dataService.PipelineDiameter18;
+    (document.getElementById('LengthField18') as any).value = this.dataService.LengthField18;
+    (document.getElementById('GroundFloor18') as any).value = this.dataService.GroundFloor18;
+    (document.getElementById('FinalFloor18') as any).value = this.dataService.FinalFloor18;
+    (document.getElementById('FloorHeight18') as any).value = this.dataService.FloorHeight18;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints18') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints18;
+
+    (document.getElementById('Region19') as any).value = this.dataService.Region19;
+    (document.getElementById('PipelineDiameter19') as any).value = this.dataService.PipelineDiameter19;
+    (document.getElementById('LengthField19') as any).value = this.dataService.LengthField19;
+    (document.getElementById('GroundFloor19') as any).value = this.dataService.GroundFloor19;
+    (document.getElementById('FinalFloor19') as any).value = this.dataService.FinalFloor19;
+    (document.getElementById('FloorHeight19') as any).value = this.dataService.FloorHeight19;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints19') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints19;
+
+    (document.getElementById('Region20') as any).value = this.dataService.Region20;
+    (document.getElementById('PipelineDiameter20') as any).value = this.dataService.PipelineDiameter20;
+    (document.getElementById('LengthField20') as any).value = this.dataService.LengthField20;
+    (document.getElementById('GroundFloor20') as any).value = this.dataService.GroundFloor20;
+    (document.getElementById('FinalFloor20') as any).value = this.dataService.FinalFloor20;
+    (document.getElementById('FloorHeight20') as any).value = this.dataService.FloorHeight20;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints20') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints20;
+
+    (document.getElementById('Region21') as any).value = this.dataService.Region21;
+    (document.getElementById('PipelineDiameter21') as any).value = this.dataService.PipelineDiameter21;
+    (document.getElementById('LengthField21') as any).value = this.dataService.LengthField21;
+    (document.getElementById('GroundFloor21') as any).value = this.dataService.GroundFloor21;
+    (document.getElementById('FinalFloor21') as any).value = this.dataService.FinalFloor21;
+    (document.getElementById('FloorHeight21') as any).value = this.dataService.FloorHeight21;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints21') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints21;
+
+    (document.getElementById('Region22') as any).value = this.dataService.Region22;
+    (document.getElementById('PipelineDiameter22') as any).value = this.dataService.PipelineDiameter22;
+    (document.getElementById('LengthField22') as any).value = this.dataService.LengthField22;
+    (document.getElementById('GroundFloor22') as any).value = this.dataService.GroundFloor22;
+    (document.getElementById('FinalFloor22') as any).value = this.dataService.FinalFloor22;
+    (document.getElementById('FloorHeight22') as any).value = this.dataService.FloorHeight22;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints22') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints22;
+
+    (document.getElementById('Region23') as any).value = this.dataService.Region23;
+    (document.getElementById('PipelineDiameter23') as any).value = this.dataService.PipelineDiameter23;
+    (document.getElementById('LengthField23') as any).value = this.dataService.LengthField23;
+    (document.getElementById('GroundFloor23') as any).value = this.dataService.GroundFloor23;
+    (document.getElementById('FinalFloor23') as any).value = this.dataService.FinalFloor23;
+    (document.getElementById('FloorHeight23') as any).value = this.dataService.FloorHeight23;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints23') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints23;
+
+    (document.getElementById('Region24') as any).value = this.dataService.Region24;
+    (document.getElementById('PipelineDiameter24') as any).value = this.dataService.PipelineDiameter24;
+    (document.getElementById('LengthField24') as any).value = this.dataService.LengthField24;
+    (document.getElementById('GroundFloor24') as any).value = this.dataService.GroundFloor24;
+    (document.getElementById('FinalFloor24') as any).value = this.dataService.FinalFloor24;
+    (document.getElementById('FloorHeight24') as any).value = this.dataService.FloorHeight24;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints24') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints24;
+
+    (document.getElementById('Region25') as any).value = this.dataService.Region25;
+    (document.getElementById('PipelineDiameter25') as any).value = this.dataService.PipelineDiameter25;
+    (document.getElementById('LengthField25') as any).value = this.dataService.LengthField25;
+    (document.getElementById('GroundFloor25') as any).value = this.dataService.GroundFloor25;
+    (document.getElementById('FinalFloor25') as any).value = this.dataService.FinalFloor25;
+    (document.getElementById('FloorHeight25') as any).value = this.dataService.FloorHeight25;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints25') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints25;
+
+    (document.getElementById('Region26') as any).value = this.dataService.Region26;
+    (document.getElementById('PipelineDiameter26') as any).value = this.dataService.PipelineDiameter26;
+    (document.getElementById('LengthField26') as any).value = this.dataService.LengthField26;
+    (document.getElementById('GroundFloor26') as any).value = this.dataService.GroundFloor26;
+    (document.getElementById('FinalFloor26') as any).value = this.dataService.FinalFloor26;
+    (document.getElementById('FloorHeight26') as any).value = this.dataService.FloorHeight26;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints26') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints26;
+
+    (document.getElementById('Region27') as any).value = this.dataService.Region27;
+    (document.getElementById('PipelineDiameter27') as any).value = this.dataService.PipelineDiameter27;
+    (document.getElementById('LengthField27') as any).value = this.dataService.LengthField27;
+    (document.getElementById('GroundFloor27') as any).value = this.dataService.GroundFloor27;
+    (document.getElementById('FinalFloor27') as any).value = this.dataService.FinalFloor27;
+    (document.getElementById('FloorHeight27') as any).value = this.dataService.FloorHeight27;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints27') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints27;
+
+    (document.getElementById('Region28') as any).value = this.dataService.Region28;
+    (document.getElementById('PipelineDiameter28') as any).value = this.dataService.PipelineDiameter28;
+    (document.getElementById('LengthField28') as any).value = this.dataService.LengthField28;
+    (document.getElementById('GroundFloor28') as any).value = this.dataService.GroundFloor28;
+    (document.getElementById('FinalFloor28') as any).value = this.dataService.FinalFloor28;
+    (document.getElementById('FloorHeight28') as any).value = this.dataService.FloorHeight28;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints28') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints28;
+
+    (document.getElementById('Region29') as any).value = this.dataService.Region29;
+    (document.getElementById('PipelineDiameter29') as any).value = this.dataService.PipelineDiameter29;
+    (document.getElementById('LengthField29') as any).value = this.dataService.LengthField29;
+    (document.getElementById('GroundFloor29') as any).value = this.dataService.GroundFloor29;
+    (document.getElementById('FinalFloor29') as any).value = this.dataService.FinalFloor29;
+    (document.getElementById('FloorHeight29') as any).value = this.dataService.FloorHeight29;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints29') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints29;
+
+    (document.getElementById('Region30') as any).value = this.dataService.Region30;
+    (document.getElementById('PipelineDiameter30') as any).value = this.dataService.PipelineDiameter30;
+    (document.getElementById('LengthField30') as any).value = this.dataService.LengthField30;
+    (document.getElementById('GroundFloor30') as any).value = this.dataService.GroundFloor30;
+    (document.getElementById('FinalFloor30') as any).value = this.dataService.FinalFloor30;
+    (document.getElementById('FloorHeight30') as any).value = this.dataService.FloorHeight30;
+    (document.getElementById('AcceptableOffsetOfTheInsetPoints30') as any).value = this.dataService.AcceptableOffsetOfTheInsetPoints30;
 
     this.lowerSelfCompensationSection = this.dataService.lowerSelfCompensationSection_Pipeline_Configuration; //checkBox1
     
