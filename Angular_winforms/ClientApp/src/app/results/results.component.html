@@ -1,0 +1,1944 @@
+<h1 class="margin-left1">Результаты</h1>
+
+<p class="margin-left1">Результаты расчета</p>
+
+<!--
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th>          </th>
+      <th>Начальный этаж</th>
+      <th>Конечный этаж</th>
+      <th>Допустимое совмещение точек врезки, мм</th>
+      <th>Максимальное смещение точек врезки, мм</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.date }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.summary }}</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<br />
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Этаж</th>
+      <th>Артикул компенсатора</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<br />
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Этаж</th>
+      <th>Артикул НО</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<br />
+-->
+
+<form [formGroup]="myForm">
+
+  <!-- <p class="margin-left1">Результат расчета</p>-->
+  <br />
+  <label class="margin-left2"> Начальный этаж </label>
+  <br />
+  <input class="input_width300 margin-left3" type="text" id="groundFloor1" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor1" />
+  <br />
+  <br />
+  <label class="margin-left2"> Конечный этаж (кгс) </label>
+  <br />
+  <input class="input_width300 margin-left3" type="text" id="finalFloor1" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor1" />
+  <br />
+  <br />
+  <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+  <br />
+  <input class="input_width300 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints1" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints1" />
+  <br />
+  <br />
+  <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+  <br />
+  <input class="input_width300 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints1" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints1" />
+  <br />
+  <br />
+
+  <button *ngIf="showBtnAddResult2" class="margin-left4" (click)="addResult2()">Добавить запись</button>
+
+  <!-- 2 -->
+  <div *ngIf="showAddResult2">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor2" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor2" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor2" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor2" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints2" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints2" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints2" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints2" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult3" class="margin-left4" (click)="addResult3()">Добавить запись</button>
+
+  <!-- 3 -->
+  <div *ngIf="showAddResult3">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor3" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor3" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor3" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor3" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints3" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints3" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints3" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints3" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult4" class="margin-left4" (click)="addResult4()">Добавить запись</button>
+
+  <!-- 4 -->
+
+  <div *ngIf="showAddResult4">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor4" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor4" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor4" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor4" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints4" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints4" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints4" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints4" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult5" class="margin-left4" (click)="addResult5()">Добавить запись</button>
+
+  <!-- 5 -->
+
+  <div *ngIf="showAddResult5">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor5" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor5" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor5" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor5" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints5" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints5" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints5" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints5" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult6" class="margin-left4" (click)="addResult6()">Добавить запись</button>
+
+  <!-- 6 -->
+
+  <div *ngIf="showAddResult6">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor6" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor6" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor6" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor6" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints6" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints6" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints6" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints6" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult7" class="margin-left4" (click)="addResult7()">Добавить запись</button>
+
+  <!-- 7 -->
+  <div *ngIf="showAddResult7">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor7" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor7" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor7" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor7" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints7" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints7" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints7" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints7" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult8" class="margin-left4" (click)="addResult8()">Добавить запись</button>
+
+  <!-- 8 -->
+
+  <div *ngIf="showAddResult8">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor8" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor8" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor8" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor8" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints8" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints8" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints8" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints8" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult9" class="margin-left4" (click)="addResult9()">Добавить запись</button>
+
+  <!-- 9 -->
+  <div *ngIf="showAddResult9">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor9" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor9" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor9" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor9" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints9" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints9" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints9" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints9" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult10" class="margin-left4" (click)="addResult10()">Добавить запись</button>
+
+  <!-- 10 -->
+  <div *ngIf="showAddResult10">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor10" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor10" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor10" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor10" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints10" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints10" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints10" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints10" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult11" class="margin-left4" (click)="addResult11()">Добавить запись</button>
+
+  <!-- 11 -->
+  <div *ngIf="showAddResult11">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor11" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor11" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor11" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor11" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints11" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints11" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints11" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints11" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult12" class="margin-left4" (click)="addResult12()">Добавить запись</button>
+
+  <!-- 12 -->
+  <div *ngIf="showAddResult12">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor12" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor12" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor12" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor12" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints12" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints12" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints12" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints12" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult13" class="margin-left4" (click)="addResult13()">Добавить запись</button>
+
+  <!-- 13 -->
+  <div *ngIf="showAddResult13">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor13" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor13" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor13" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor13" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints13" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints13" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints13" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints13" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult14" class="margin-left4" (click)="addResult14()">Добавить запись</button>
+
+  <!-- 14 -->
+  <div *ngIf="showAddResult14">
+
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor14" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor14" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor14" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor14" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints14" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints14" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints14" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints14" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult15" class="margin-left4" (click)="addResult15()">Добавить запись</button>
+
+  <!-- 15 -->
+  <div *ngIf="showAddResult15">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor15" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor15" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor15" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor15" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints15" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints15" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints15" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints15" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult16" class="margin-left4" (click)="addResult16()">Добавить запись</button>
+
+  <!-- 16 -->
+  <div *ngIf="showAddResult16">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor16" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor16" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor16" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor16" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints16" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints16" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints16" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints16" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult17" class="margin-left4" (click)="addResult17()">Добавить запись</button>
+
+  <!-- 17 -->
+  <div *ngIf="showAddResult17">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor17" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor17" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor17" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor17" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints17" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints17" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints17" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints17" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult18" class="margin-left4" (click)="addResult18()">Добавить запись</button>
+
+  <!-- 18 -->
+  <div *ngIf="showAddResult18">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor18" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor18" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor18" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor18" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints18" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints18" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints18" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints18" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult19" class="margin-left4" (click)="addResult19()">Добавить запись</button>
+  <br />
+
+  <!-- 19 -->
+  <div *ngIf="showAddResult19">
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor19" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor19" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor19" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor19" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints19" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints19" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints19" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints19" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult20" class="margin-left4" (click)="addResult20()">Добавить запись</button>
+
+  <!-- 20 -->
+  <div *ngIf="showAddResult20">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor20" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor20" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor20" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor20" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints20" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints20" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints20" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints20" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult21" class="margin-left4" (click)="addResult21()">Добавить запись</button>
+
+  <!-- 21 -->
+  <div *ngIf="showAddResult21">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor21" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor21" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor21" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor21" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints21" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints21" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints21" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints21" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult22" class="margin-left4" (click)="addResult22()">Добавить запись</button>
+
+  <!-- 22 -->
+  <div *ngIf="showAddResult22">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor22" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor22" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor22" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor22" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints22" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints22" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints22" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints22" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult23" class="margin-left4" (click)="addResult23()">Добавить запись</button>
+
+  <!-- 23 -->
+  <div *ngIf="showAddResult23">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor23" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor23" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor23" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor23" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints23" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints23" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints23" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints23" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult24" class="margin-left4" (click)="addResult24()">Добавить запись</button>
+
+  <!-- 24 -->
+  <div *ngIf="showAddResult24">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor24" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor24" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor24" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor24" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints24" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints24" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints24" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints24" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult25" class="margin-left4" (click)="addResult25()">Добавить запись</button>
+
+  <!-- 25 -->
+  <div *ngIf="showAddResult25">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor25" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor25" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor25" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor25" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints25" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints25" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints25" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints25" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult26" class="margin-left4" (click)="addResult26()">Добавить запись</button>
+
+  <!-- 26 -->
+  <div *ngIf="showAddResult26">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor26" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor26" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor26" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor26" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints26" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints26" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints26" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints26" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult27" class="margin-left4" (click)="addResult27()">Добавить запись</button>
+
+
+  <!-- 27 -->
+  <div *ngIf="showAddResult27">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor27" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor27" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor27" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor27" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints27" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints27" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints27" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints27" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult28" class="margin-left4" (click)="addResult28()">Добавить запись</button>
+
+
+  <!-- 28 -->
+  <div *ngIf="showAddResult28">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor28" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor28" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor28" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor28" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints28" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints28" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints28" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints28" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult29" class="margin-left4" (click)="addResult29()">Добавить запись</button>
+
+
+  <!-- 29 -->
+  <div *ngIf="showAddResult29">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor29" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor29" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor29" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor29" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints29" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints29" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints29" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints29" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult30" class="margin-left4" (click)="addResult30()">Добавить запись</button>
+
+
+  <!-- 30 -->
+  <div *ngIf="showAddResult30">
+    <br />
+    <label class="margin-left2"> Начальный этаж </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="groundFloor30" placeholder="Введите информацию о начальном этаже" formControlName="groundFloor30" />
+    <br />
+    <br />
+    <label class="margin-left2"> Конечный этаж (кгс) </label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="finalFloor30" placeholder="Введите информацию о конечный этаже" formControlName="finalFloor30" />
+    <br />
+    <br />
+    <label class="margin-left2"> Допустимое смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="permissibleOffsetOfTheInsertionPoints30" placeholder="Введите информацию о допустимом смещение точек врезки, мм" formControlName="permissibleOffsetOfTheInsertionPoints30" />
+    <br />
+    <br />
+    <label class="margin-left2"> Максимальное смещение точек врезки, мм: </label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="maximumOffsetOfTheInsertionPoints30" placeholder="Введите информацию о максимальном смещение точек врезки, мм" formControlName="maximumOffsetOfTheInsertionPoints30" />
+    <br />
+    <br />
+    <br />
+  </div>
+
+  <br />
+  <br />
+  <p class="margin-left1">Необходимый набор компенсаторов и опор</p>
+
+
+  <!-- 1 -->
+  <label class="margin-left2">Этаж</label>
+  <br />
+  <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle1" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle1" />
+  <br />
+  <br />
+  <label class="margin-left2">Артикул компенсатора</label>
+  <br />
+  <input class="input_width330 margin-left3" type="text" id="compensatorArticle1" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle1" />
+  <br />
+  <br />
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports2" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports2()">Добавить запись</button>
+
+  <!-- 2 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports2">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle2" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle2" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle2" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle2" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports3" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports3()">Добавить запись</button>
+
+  <!-- 3 -->
+  <br />
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports3">
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle3" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle3" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle3" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle3" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports4" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports4()">Добавить запись</button>
+
+  <!-- 4 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports4">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle4" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle4" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle4" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle4" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports5" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports5()">Добавить запись</button>
+
+  <!-- 5 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports5">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle5" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle5" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle5" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle5" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports6" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports6()">Добавить запись</button>
+
+  <!-- 6 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports6">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle6" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle6" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle6" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle6" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports7" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports7()">Добавить запись</button>
+
+  <!-- 7 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports7">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle7" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle7" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle7" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle7" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports8" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports8()">Добавить запись</button>
+
+  <!-- 8 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports8">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle8" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle8" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle8" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle8" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports9" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports9()">Добавить запись</button>
+
+  <!-- 9 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports9">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle9" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle9" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle9" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle9" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports10" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports10()">Добавить запись</button>
+
+  <!-- 10 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports10">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle10" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle10" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle10" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle10" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports11" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports11()">Добавить запись</button>
+
+  <!-- 11 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports11">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle11" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle11" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle11" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle11" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports12" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports12()">Добавить запись</button>
+
+
+  <!-- 12 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports12">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle12" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle12" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle12" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle12" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports13" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports13()">Добавить запись</button>
+
+  <!-- 13 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports13">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle13" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle13" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle13" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle13" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports14" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports14()">Добавить запись</button>
+
+  <!-- 14 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports14">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle14" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle14" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle14" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle14" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports15" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports15()">Добавить запись</button>
+
+  <!-- 15 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports15">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300  margin-left3" type="text" id="floorСompensatorArticle15" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle15" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330  margin-left3" type="text" id="compensatorArticle15" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle15" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports16" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports16()">Добавить запись</button>
+
+  <!-- 16 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports16">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle16" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle16" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle16" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle16" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports17" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports17()">Добавить запись</button>
+
+  <!-- 17 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports17">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle17" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle17" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle17" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle17" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports18" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports18()">Добавить запись</button>
+
+  <!-- 18 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports18">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle18" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle18" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle18" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle18" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports19" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports19()">Добавить запись</button>
+
+  <!-- 19 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports19">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle19" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle19" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle19" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle19" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports20" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports20()">Добавить запись</button>
+
+  <!-- 20 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports20">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle20" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle20" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle20" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle20" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports21" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports21()">Добавить запись</button>
+
+  <!-- 21 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports21">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle21" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle21" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle21" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle21" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports22" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports22()">Добавить запись</button>
+
+  <!-- 22 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports22">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle22" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle22" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle22" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle22" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports23" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports23()">Добавить запись</button>
+
+  <!-- 23 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports23">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle23" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle23" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle23" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle23" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports24" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports24()">Добавить запись</button>
+
+  <!-- 24 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports24">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle24" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle24" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle24" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle24" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports25" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports25()">Добавить запись</button>
+
+  <!-- 25 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports25">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle25" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle25" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle25" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle25" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports26" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports26()">Добавить запись</button>
+
+  <!-- 26 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports26">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle26" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle26" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle26" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle26" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports27" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports27()">Добавить запись</button>
+
+  <!-- 27 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports27">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle27" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle27" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle27" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle27" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports28" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports28()">Добавить запись</button>
+
+  <!-- 28 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports28">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle28" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle28" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle28" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle28" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports29" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports29()">Добавить запись</button>
+
+  <!-- 29 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports29">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle29" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle29" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle29" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle29" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddNecessarySetOfExpansionJointsAndSupports30" class="margin-left4" (click)="addNecessarySetOfExpansionJointsAndSupports30()">Добавить запись</button>
+
+  <!-- 30 -->
+  <div *ngIf="showNecessarySetOfExpansionJointsAndSupports30">
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorСompensatorArticle30" placeholder="Введите информацию о этаже" formControlName="floorСompensatorArticle30" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул компенсатора</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="compensatorArticle30" placeholder="Введите информацию о артикуле компенсатора" formControlName="compensatorArticle30" />
+    <br />
+    <br />
+  </div>
+  <br />
+
+  <p class="margin-left1">Параметры вертикального трубопровода:</p>
+
+
+  <!-- 1 -->
+  <label class="margin-left2">Этаж</label>
+  <br />
+  <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport1" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport1" />
+  <br />
+  <br />
+  <label class="margin-left2">Артикул НО</label>
+  <br />
+  <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport1" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport1" />
+  <br />
+  <br />
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters2" class="margin-left4" (click)="addVerticalPipelineParameters2()">Добавить запись</button>
+
+  <!-- 2 -->
+  <div *ngIf="showVerticalPipelineParameters2">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport2" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport2" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport2" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport2" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters3" class="margin-left4" (click)="addVerticalPipelineParameters3()">Добавить запись</button>
+
+  <!-- 3 -->
+  <div *ngIf="showVerticalPipelineParameters3">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport3" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport3" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport3" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport3" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters4" class="margin-left4" (click)="addVerticalPipelineParameters4()">Добавить запись</button>
+
+  <!-- 4 -->
+  <div *ngIf="showVerticalPipelineParameters4">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport4" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport4" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport4" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport4" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters5" class="margin-left4" (click)="addVerticalPipelineParameters5()">Добавить запись</button>
+
+  <!-- 5 -->
+  <div *ngIf="showVerticalPipelineParameters5">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport5" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport5" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport5" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport5" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters6" class="margin-left4" (click)="addVerticalPipelineParameters6()">Добавить запись</button>
+
+  <!-- 6 -->
+  <div *ngIf="showVerticalPipelineParameters6">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport6" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport6" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport6" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport6" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters7" class="margin-left4" (click)="addVerticalPipelineParameters7()">Добавить запись</button>
+
+  <!-- 7 -->
+  <div *ngIf="showVerticalPipelineParameters7">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport7" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport7" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport7" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport7" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters8" class="margin-left4" (click)="addVerticalPipelineParameters8()">Добавить запись</button>
+
+  <!-- 8 -->
+  <div *ngIf="showVerticalPipelineParameters8">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport8" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport8" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport8" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport8" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters9" class="margin-left4" (click)="addVerticalPipelineParameters9()">Добавить запись</button>
+
+  <!-- 9 -->
+  <div *ngIf="showVerticalPipelineParameters9">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport9" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport9" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport9" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport9" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters10" class="margin-left4" (click)="addVerticalPipelineParameters10()">Добавить запись</button>
+
+  <!-- 10 -->
+  <div *ngIf="showVerticalPipelineParameters10">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport10" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport10" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport10" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport10" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters11" class="margin-left4" (click)="addVerticalPipelineParameters11()">Добавить запись</button>
+
+  <!-- 11 -->
+  <div *ngIf="showVerticalPipelineParameters11">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport11" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport11" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport11" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport11" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters12" class="margin-left4" (click)="addVerticalPipelineParameters12()">Добавить запись</button>
+
+  <!-- 12 -->
+  <div *ngIf="showVerticalPipelineParameters12">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport12" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport12" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport12" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport12" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters13" class="margin-left4" (click)="addVerticalPipelineParameters13()">Добавить запись</button>
+
+  <!-- 13 -->
+  <div *ngIf="showVerticalPipelineParameters13">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport13" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport13" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport13" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport13" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters14" class="margin-left4" (click)="addVerticalPipelineParameters14()">Добавить запись</button>
+
+  <!-- 14 -->
+  <div *ngIf="showVerticalPipelineParameters14">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport14" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport14" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport14" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport14" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters15" class="margin-left4" (click)="addVerticalPipelineParameters15()">Добавить запись</button>
+
+  <!-- 15 -->
+  <div *ngIf="showVerticalPipelineParameters15">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport15" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport15" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport15" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport15" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters16" class="margin-left4" (click)="addVerticalPipelineParameters16()">Добавить запись</button>
+
+  <!-- 16 -->
+  <div *ngIf="showVerticalPipelineParameters16">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport16" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport16" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport16" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport16" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters17" class="margin-left4" (click)="addVerticalPipelineParameters17()">Добавить запись</button>
+
+  <!-- 17 -->
+  <div *ngIf="showVerticalPipelineParameters17">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport17" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport17" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport17" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport17" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters18" class="margin-left4" (click)="addVerticalPipelineParameters18()">Добавить запись</button>
+
+  <!-- 18 -->
+  <div *ngIf="showVerticalPipelineParameters18">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport18" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport18" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport18" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport18" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters19" class="margin-left4" (click)="addVerticalPipelineParameters19()">Добавить запись</button>
+
+  <!-- 19 -->
+  <div *ngIf="showVerticalPipelineParameters19">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport19" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport19" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport19" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport19" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters20" class="margin-left4" (click)="addVerticalPipelineParameters20()">Добавить запись</button>
+
+  <!-- 20 -->
+  <div *ngIf="showVerticalPipelineParameters20">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport20" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport20" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport20" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport20" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters21" class="margin-left4" (click)="addVerticalPipelineParameters21()">Добавить запись</button>
+
+  <!-- 21 -->
+  <div *ngIf="showVerticalPipelineParameters21">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport21" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport21" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport21" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport21" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters22" class="margin-left4" (click)="addVerticalPipelineParameters22()">Добавить запись</button>
+
+  <!-- 22 -->
+  <div *ngIf="showVerticalPipelineParameters22">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport22" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport22" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport22" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport22" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters23" class="margin-left4" (click)="addVerticalPipelineParameters23()">Добавить запись</button>
+
+  <!-- 23 -->
+  <div *ngIf="showVerticalPipelineParameters23">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport23" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport23" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport23" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport23" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters24" class="margin-left4" (click)="addVerticalPipelineParameters24()">Добавить запись</button>
+
+  <!-- 24 -->
+  <div *ngIf="showVerticalPipelineParameters24">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport24" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport24" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport24" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport24" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters25" class="margin-left4" (click)="addVerticalPipelineParameters25()">Добавить запись</button>
+
+  <!-- 25 -->
+  <div *ngIf="showVerticalPipelineParameters25">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport25" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport25" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport25" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport25" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters26" class="margin-left4" (click)="addVerticalPipelineParameters26()">Добавить запись</button>
+
+  <!-- 26 -->
+  <div *ngIf="showVerticalPipelineParameters26">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport26" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport26" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport26" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport26" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters27" class="margin-left4" (click)="addVerticalPipelineParameters27()">Добавить запись</button>
+
+  <!-- 27 -->
+  <div *ngIf="showVerticalPipelineParameters27">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport27" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport27" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport27" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport27" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters28" class="margin-left4" (click)="addVerticalPipelineParameters28()">Добавить запись</button>
+
+  <!-- 28 -->
+  <div *ngIf="showVerticalPipelineParameters28">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport28" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport28" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport28" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport28" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters29" class="margin-left4" (click)="addVerticalPipelineParameters29()">Добавить запись</button>
+
+  <!-- 29 -->
+  <div *ngIf="showVerticalPipelineParameters29">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport29" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport29" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport29" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport29" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddVerticalPipelineParameters30" class="margin-left4" (click)="addVerticalPipelineParameters30()">Добавить запись</button>
+
+  <!-- 30 -->
+  <div *ngIf="showVerticalPipelineParameters30">
+    <br />
+    <br />
+    <label class="margin-left2">Этаж</label>
+    <br />
+    <input class="input_width300 margin-left3" type="text" id="floorArticleOfTheFixedSupport30" placeholder="Введите информацию о этаже" formControlName="floorArticleOfTheFixedSupport30" />
+    <br />
+    <br />
+    <label class="margin-left2">Артикул НО</label>
+    <br />
+    <input class="input_width330 margin-left3" type="text" id="articleOfTheFixedSupport30" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="articleOfTheFixedSupport30" />
+    <br />
+    <br />
+  </div>
+
+  <br />
+  <br />
+  <br />
+  <label class="margin-left3"> Статус </label>
+  <br />
+  <input class="input_width360 margin-left4" type="text" id="status" placeholder="Введите информацию о артикуле неподвижной опоры" formControlName="status" />
+</form>
+
+<br />
+<button class="btn btn-primary margin-left4" (click)="recalculate()">Пересчитать</button>
+<br />
+<br />

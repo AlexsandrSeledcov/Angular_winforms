@@ -1,0 +1,899 @@
+<div class="col-md-12">
+  <form [formGroup]="myForm">
+    <div class="title">
+    </div>
+    <div class="settings">
+      <p class="margin-left1">Параметры вертикального трубопровода:</p>
+      <br />
+    </div>
+
+    <!--
+    <div class="combobox">
+      <input type="text"
+             placeholder="Введите тип трубопровода"
+             class="combobox-input"
+             [(ngModel)]="inputItem"
+             (ngModelChange)="getFilteredList()"
+             (keyup)="onKeyPress($event)"
+             (blur)="toggleListDisplay(0)"
+             (focus)="toggleListDisplay(1)"
+             [ngClass]="{'error': showError}">
+      <i *ngIf="showError"
+         class="error-text">Invalid Selection.</i>
+
+
+      <div class="combobox-options" *ngIf="!listHidden">
+        <list-item *ngFor="let item of filteredList;let i = index"
+                   [ngClass]="{'selected': i===selectedIndex}"
+                   (click)="selectItem(i)">
+          {{item}}
+        </list-item>
+      </div>
+    </div>
+  -->
+    <label class="margin-left2">Тип трубопровода</label>
+    <br />
+    <input class="margin-left3 combobox-input" type="text" id="pipelineType" placeholder="Введите тип трубопровода" formControlName="pipelineType" />              <!--[(ngModel)]="inputItem" (ngModelChange)="getFilteredList()" ( keyup)="onKeyPress($event)" (blur)="toggleListDisplay(0)" (focus)="toggleListDisplay(1)" [ngClass]="{'error': showError}" -->               <!--Выподающий список (https://codepen.io/dunmaksim/pen/Pqdvyp)-->
+    <br />
+    <br />
+    <label class="margin-left0">Возможные варианты видов трубопровода: </label>
+    <br />
+    <label class="margin-left1">Тип трубопровода может быть трех типов: </label>
+    <br />
+    <label class="margin-left2">Водоснабжение, резьбовое соединение</label>
+    <br />
+    <label class="margin-left3">Отопление, сварное соединение</label>
+    <br />
+    <label class="margin-left4">Водоснабжение, грувлок соединение </label>
+    <br />
+    <br />
+    <br />
+
+    <label class="margin-left2">Коэффициент запаса, %</label>
+    <br />
+    <input class="margin-left3 form-control" type="text" id="safetyFactor" placeholder="Введите коэффициент запаса, %" formControlName="safetyFactor" />
+    <label class="margin-left2">Суммарная погрешность задаваемых значений</label>
+    <br />
+    <br />
+
+    <label class="margin-left2">Группа стали и сплава</label>
+    <br />
+    <input class="margin-left3 form-control" type="text" id="steelАndАlloyGroup" placeholder="Введите группа стали и сплава" formControlName="steelАndАlloyGroup" />
+    <br />
+    <br />
+
+
+
+    <label class="margin-left2">ТКЛР, мм/м × ℃</label>
+    <br />
+    <input class="margin-left3 form-control" type="text" id="temperatureCoefficientOfLinearExpansion" placeholder="Введите Группа стали и сплава" formControlName="temperatureCoefficientOfLinearExpansion" />
+    <br />
+    <br />
+
+    <label class="margin-left2">Максимальная температура теплоносителя, °С</label>
+    <br />
+    <input class="margin-left3 form-control" type="text" id="maximumCoolanTemperature" placeholder="Введите максимальную температура теплоносителя, °С" formControlName="мaximumCoolanTemperature" />
+    <br />
+    <br />
+
+    <label class="margin-left2">Минимальная температура воздуха при монтаже, °С</label>
+    <br />
+    <input type="text" class="form-control margin-left3" id="мinimumАirTemperatureDuringInstallation" placeholder="Введите минимальную температуру воздуха при монтаже, °С" formControlName="мinimumАirTemperatureDuringInstallation" />
+    <label class="margin-left2">Согласно СП.60.13330.2020</label>
+    <br />
+    <br />
+
+    <button type="button" class="button margin-left3" (click)="showReference()">Справка</button> <!--(click)="showReference()"-->
+    <br />
+    <div *ngIf="showReferenceFlag">
+      <label class="margin-left2">Группа 1:</label>
+      <br />
+      <label class="margin-left2">
+        Ст3сп5, 10, 15, 15Л, 20, 20Л, 20К, 22К, 25, 25Л, 30, 35, 40, 45,
+        20Х, 30Х, 35Х, 40Х, 45Х,
+        12ХМ, 15ХМ, 20ХМ, 20ХМА, 20ХМЛ, 20ХМФЛ, 30ХМ,
+        30ХМА, 35ХМ, 35ХМА, 10Х2М, 12Х2М, 12МХ, 30ХГСА, 12Х1МФ,
+        25Х1МФ, 15Х1М1Ф, 15Х1М1ФЛ, 12Х2МФА, 12Х2МФА-А, 15Х2МФА,
+        15Х2МФА-А, 18Х2МФА, 25Х2МФА, 25Х2М1Ф, 25Х3МФА, 10Х2М1ФБ,
+        20Х1М1Ф1БР, 38ХН3МФА, 15Х2НМФА, 15Х2НМФА-А, 36Х2Н2МФА,
+        15Х3НМФА, 15Х3НМФА-А, 10ХСНД, 10ХН1М, 15ГС, 16ГС, 20ГСЛ,
+        09Г2С, 16ГНМА, 10ГН2МФА, 10ГН2МФАЛ
+      </label>
+      <br />  <br />
+      <label class="margin-left2">Группа 2:</label>
+      <br />
+      <label class="margin-left2">
+        08X13, 20X13, 30X13, 09Х17Н, 1Х12В2МФ, 14Х17Н2, 20Х12ВНМФ,
+        18Х12ВМБФР, 05Х12Н2М-ВИ, 05Х12Н2М, 05Х12Н2М-ВД, 06Х12Н3Д,
+        06Х12Н3ДЛ, 08Х14МФ, 06Х13Н7Д2, 07Х16Н4Б
+      </label>
+      <br />  <br />
+      <label class="margin-left2">Группа 3:</label>
+      <br /><label>
+        09Х18Н9, 10Х18Н9, 12X18Н9, 08Х18Н10Т, 12Х18Н9Т, 12Х18Н10Т,
+        08Х18Н12Т, 12Х18Н12Т, 12Х18Н9ТЛ, 03Х16Н9М2, 08Х16Н11М3,
+        10Х17Н13М2Т, 10Х18Н12М3Л, 12Х18Н12М3ТЛ, 09Х16Н15М3Б,
+        45Х14Н14В2М, Х18Н22В2Т2, 31Х19Н9МВБТ, 10Х11Н20Т3Р,
+        1Х16Н36МБТЮР, ХН35ВТЮ, ХН35ВТ-ВД, ХН35ВТ, 03Х21Н32М3Б,
+        0Х20Н46Б
+      </label>  <br />  <br />
+    </div>
+
+    <!--<a class="nav-link text-dark margin-left3" [routerLink]="['/pipeline-сonfiguration']">Конфигурация трубопровода</a>-->
+    <!--<button type="button" class="button">Конфигурация трубопровода</button>--> <!--(click)="showPipelineСonfiguration()"-->
+
+    <br />
+    <br />
+
+    <input class="margin-left3" #locateExpansionJointsCloseToFixedSupportsCheckBox type="checkbox" [checked]="locateExpansionJointsCloseToFixedSupports" (change)="onLocateExpansionJointsCloseToFixedSupportsChangedChanged(locateExpansionJointsCloseToFixedSupportsCheckBox.checked)" />
+    <label class="margin-left2">Расположить компенсаторы вблизи неподвижных опор</label>
+    <br />
+    <br />
+
+    <input class="form-control margin-left3" type="text" id="setСonfiguration" placeholder="-- Задайте конфигурацию --" formControlName="setСonfiguration" />
+    <br />
+    <br />
+
+    <button class="margin-left4 button" type="button" (click)="generateProject()">Сформировать проект</button>
+    <br />
+    <br />
+
+    <button class="margin-left4 button" type="button" (click)="clearForm()">Очистить форму</button>
+    <br />
+    <br />
+
+    <button class="margin-left4 button" type="button" (click)="updateProject()">Обновить проект</button>
+    <br />
+    <br />
+
+
+
+
+    <!--<a class="margin-left4 nav-link text-dark" [routerLink]="['/results']">Результаты</a>-->
+    <!-- <button type="button" class="button" (click)="showResults()">Результаты</button> -->
+    <br />
+    <br />
+
+    <button class="margin-left4 button" type="button" (click)="calculateLoad()">Рассчитать нагрузку</button>
+    <br />
+    <br />
+
+    <button class="margin-left4 button" type="button" (click)="optimizeProject()">Оптимизировать проект</button>
+    <br />
+    <br />
+
+
+    <label class="margin-left2">СТАТУС: </label>
+    <input class="margin-left3 form-control" type="text" id="status" placeholder="error_message" formControlName="status" />
+
+    <br />
+    <br />
+
+    <!-- 17 этажей -->
+    <!-- [x]_[]z_10x11_13z_[x]\1х2_[]z_10x11_13z_15x16 -->
+
+    <!-- 1х2 -->
+    <div *ngIf="showImg1">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/1х2_[]z_10x11_13z_15x16/1х2_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg2">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/1х2_[]z_10x11_13z_15x16/1х2_3z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg3">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/1х2_[]z_10x11_13z_15x16//1х2_4z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg4">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/1х2_[]z_10x11_13z_15x16/1х2_5z_10x11_13z_15x16.png" alt="image">
+    </div>
+    <div *ngIf="showImg5">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/1х2_[]z_10x11_13z_15x16/1х2_6z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg6">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/1х2_[]z_10x11_13z_15x16/1х2_7z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg7">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/1х2_[]z_10x11_13z_15x16/1х2_8z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg8">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/1х2_[]z_10x11_13z_15x16/1х2_9z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+
+    <!--2х3-->
+    <div *ngIf="showImg9">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/2х3_[]z_10x11_13z_15x16/1х2_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg10">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/2х3_[]z_10x11_13z_15x16/1х2_3z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg11">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/2х3_[]z_10x11_13z_15x16/1х2_4z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg12">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/2х3_[]z_10x11_13z_15x16/1х2_5z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg13">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/2х3_[]z_10x11_13z_15x16/1х2_6z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg14">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/2х3_[]z_10x11_13z_15x16/1х2_7z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg15">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/2х3_[]z_10x11_13z_15x16/1х2_8z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg15">
+      <img class="margin-left4" src="/assets/img/17/[x]_[]z_10x11_13z_[x]/[х]_[]z_10x11_13z_15x16/2х3_[]z_10x11_13z_15x16/1х2_9z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+
+    <!--3х4-->
+    <div *ngIf="showImg16">
+      <img class="margin-left4" src="/assets/img/17/4х5_[]z_10x11_13z_15x16/4х5_[]z_10x11_13z_15x16/4х5_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg17">
+      <img class="margin-left4" src="/assets/img/17/4х5_[]z_10x11_13z_15x16/4х5_[]z_10x11_13z_15x16/4х5_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg18">
+      <img class="margin-left4" src="/assets/img/17/4х5_[]z_10x11_13z_15x16/4х5_[]z_10x11_13z_15x16/4х5_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg19">
+      <img class="margin-left4" src="/assets/img/17/4х5_[]z_10x11_13z_15x16/4х5_[]z_10x11_13z_15x16/4х5_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg20">
+      <img class="margin-left4" src="/assets/img/17/4х5_[]z_10x11_13z_15x16/4х5_[]z_10x11_13z_15x16/4х5_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg21">
+      <img class="margin-left4" src="/assets/img/17/4х5_[]z_10x11_13z_15x16/4х5_[]z_10x11_13z_15x16/4х5_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <!--5х6-->
+    <div *ngIf="showImg22">
+      <img class="margin-left4" src="/assets/img/17/5х6_[]z_10x11_13z_15x16/5х6_[]z_10x11_13z_15x16/5х6_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg23">
+      <img class="margin-left4" src="/assets/img/17/5х6_[]z_10x11_13z_15x16/5х6_[]z_10x11_13z_15x16/5х6_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg24">
+      <img class="margin-left4" src="/assets/img/17/5х6_[]z_10x11_13z_15x16/5х6_[]z_10x11_13z_15x16/5х6_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg25">
+      <img class="margin-left4" src="/assets/img/17/5х6_[]z_10x11_13z_15x16/5х6_[]z_10x11_13z_15x16/5х6_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <!--6х7-->
+    <div *ngIf="showImg26">
+      <img class="margin-left4" src="/assets/img/17/6х7_[]z_10x11_13z_15x16/6х7_[]z_10x11_13z_15x16/6х7_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg27">
+      <img class="margin-left4" src="/assets/img/17/6х7_[]z_10x11_13z_15x16/6х7_[]z_10x11_13z_15x16/6х7_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg28">
+      <img class="margin-left4" src="/assets/img/17/6х7_[]z_10x11_13z_15x16/6х7_[]z_10x11_13z_15x16/6х7_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <!--7х8-->
+    <div *ngIf="showImg29">
+      <img class="margin-left4" src="/assets/img/17/7х8_[]z_10x11_13z_15x16/7х8_[]z_10x11_13z_15x16/7х8_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg30">
+      <img class="margin-left4" src="/assets/img/17/7х8_[]z_10x11_13z_15x16/7х8_[]z_10x11_13z_15x16/7х8_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+    <!--8х9-->
+    <div *ngIf="showImg31">
+      <img class="margin-left4" src="/assets/img/17/8х9_[]z_10x11_13z_15x16/8х9_[]z_10x11_13z_15x16/8х9_2z_10x11_13z_15x16.png" alt="image">
+    </div>
+
+
+
+
+    <!-- [х]_[]z_9x10_13z_13x14/1х2_[]z_9x10_12z_13x14 -->
+
+    <div *ngIf="showImg32">
+      <img class="margin-left4" src="/assets/img/17/[х]_[]z_9x10_13z_13x14/1х2_[]z_9x10_12z_13x14/1х2_2z_9x10_12z_13x14.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg33">
+      <img class="margin-left4" src="/assets/img/17/[х]_[]z_9x10_13z_13x14/1х2_[]z_9x10_12z_13x14/1х2_3z_10x11_13z_13x14.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg34">
+      <img class="margin-left4" src="/assets/img/17/[х]_[]z_9x10_13z_13x14/1х2_[]z_9x10_12z_13x14/1х2_4z_10x11_13z_13x14.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg35">
+      <img class="margin-left4" src="/assets/img/17/[х]_[]z_9x10_13z_13x14/1х2_[]z_9x10_12z_13x14/1х2_5z_10x11_13z_13x14.png" alt="image">
+    </div>
+    <div *ngIf="showImg36">
+      <img class="margin-left4" src="/assets/img/17/[х]_[]z_9x10_13z_13x14/1х2_[]z_9x10_12z_13x14/1х2_6z_10x11_13z_13x14.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg37">
+      <img class="margin-left4" src="/assets/img/17/[х]_[]z_9x10_13z_13x14/1х2_[]z_9x10_12z_13x14/1х2_7z_10x11_13z_13x14.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg38">
+      <img class="margin-left4" src="/assets/img/17/[х]_[]z_9x10_13z_13x14/1х2_[]z_9x10_12z_13x14/1х2_8z_10x11_13z_13x14.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg39">
+      <img class="margin-left4" src="/assets/img/17/[х]_[]z_9x10_13z_13x14/1х2_[]z_9x10_12z_13x14/1х2_9z_10x11_13z_13x14.png" alt="image">
+    </div>
+
+
+    <!--2х3_[]z_10x11_13z_14x15-->
+
+    <div *ngIf="showImg40">
+      <img class="margin-left4" src="/assets/img/17/2х3_[]z_10x11_13z_13x14/2х3_[]z_10x11_13z_14x15/2х3_10z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg41">
+      <img class="margin-left4" src="/assets/img/17/2х3_[]z_10x11_13z_13x14/2х3_[]z_10x11_13z_14x15/2х3_11z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg42">
+      <img class="margin-left4" src="/assets/img/17/2х3_[]z_10x11_13z_13x14/2х3_[]z_10x11_13z_14x15/2х3_12z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg43">
+      <img class="margin-left4" src="/assets/img/17/2х3_[]z_10x11_13z_13x14/2х3_[]z_10x11_13z_14x15/2х3_13z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg44">
+      <img class="margin-left4" src="/assets/img/17/2х3_[]z_10x11_13z_13x14/2х3_[]z_10x11_13z_14x15/2х3_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg45">
+      <img class="margin-left4" src="/assets/img/17/2х3_[]z_10x11_13z_13x14/2х3_[]z_10x11_13z_14x15/2х3_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg46">
+      <img class="margin-left4" src="/assets/img/17/2х3_[]z_10x11_13z_13x14/2х3_[]z_10x11_13z_14x15/2х3_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!--4х5_[]z_10x11_13z_14x15-->
+
+    <div *ngIf="showImg47">
+      <img class="margin-left4" src="/assets/img/17/4х5_[]z_10x11_13z_13x14/4х5_[]z_10x11_13z_14x15/4х5_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg48">
+      <img class="margin-left4" src="/assets/img/17/4х5_[]z_10x11_13z_13x14/4х5_[]z_10x11_13z_14x15/4х5_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg49">
+      <img class="margin-left4" src="/assets/img/17/4х5_[]z_10x11_13z_13x14/4х5_[]z_10x11_13z_14x15/4х5_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg50">
+      <img class="margin-left4" src="/assets/img/17/4х5_[]z_10x11_13z_13x14/4х5_[]z_10x11_13z_14x15/4х5_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg51">
+      <img class="margin-left4" src="/assets/img/17/4х5_[]z_10x11_13z_13x14/4х5_[]z_10x11_13z_14x15/4х5_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg52">
+      <img class="margin-left4" src="/assets/img/17/4х5_[]z_10x11_13z_13x14/4х5_[]z_10x11_13z_14x15/4х5_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!--5х6_[]z_10x11_13z_14x15-->
+
+    <div *ngIf="showImg53">
+      <img class="margin-left4" src="/assets/img/17/5х6_[]z_10x11_13z_13x14/5х6_[]z_10x11_13z_14x15/5х6_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg54">
+      <img class="margin-left4" src="/assets/img/17/5х6_[]z_10x11_13z_13x14/5х6_[]z_10x11_13z_14x15/5х6_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg55">
+      <img class="margin-left4" src="/assets/img/17/5х6_[]z_10x11_13z_13x14/5х6_[]z_10x11_13z_14x15/5х6_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg56">
+      <img class="margin-left4" src="/assets/img/17/5х6_[]z_10x11_13z_13x14/5х6_[]z_10x11_13z_14x15/5х6_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!--6х7_[]z_10x11_13z_14x15-->
+
+    <div *ngIf="showImg57">
+      <img class="margin-left4" src="/assets/img/17/6х7_[]z_10x11_13z_13x14/6х7_[]z_10x11_13z_14x15/6х7_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg58">
+      <img class="margin-left4" src="/assets/img/17/6х7_[]z_10x11_13z_13x14/6х7_[]z_10x11_13z_14x15/6х7_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg59">
+      <img class="margin-left4" src="/assets/img/17/6х7_[]z_10x11_13z_13x14/6х7_[]z_10x11_13z_14x15/6х7_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!--7х8_[]z_10x11_13z_14x15-->
+
+    <div *ngIf="showImg60">
+      <img class="margin-left4" src="/assets/img/17/7х8_[]z_10x11_13z_13x14/7х8_[]z_10x11_13z_14x15/7х8_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg61">
+      <img class="margin-left4" src="/assets/img/17/7х8_[]z_10x11_13z_13x14/7х8_[]z_10x11_13z_14x15/7х8_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!--8х9_[]z_10x11_13z_14x15-->
+
+    <div *ngIf="showImg62">
+      <img class="margin-left4" src="/assets/img/17/8х9_[]z_10x11_13z_13x14/8х9_[]z_10x11_13z_14x15/8х9_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- []_6z_6x7_17z_17x18 -->
+    <div *ngIf="showImg63">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_6x7_17z_17x18/0х1_6z_6x7_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg64">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_6x7_17z_17x18/1х2_6z_6x7_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg65">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_6x7_17z_17x18/2х3_6z_6x7_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg66">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_6x7_17z_17x18/3х4_6z_6x7_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg67">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_6x7_17z_17x18/4х5_6z_6x7_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg68">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_6x7_17z_17x18/5х6_6z_6x7_17z_17x18.png" alt="image">
+    </div>
+
+
+
+
+    <!-- []_6z_7x8_17z_17x18 -->
+    <div *ngIf="showImg69">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_7x8_17z_17x18/0х1_6z_7x8_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg70">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_7x8_17z_17x18/1х2_6z_7x8_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg71">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_7x8_17z_17x18/2х3_6z_7x8_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg72">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_7x8_17z_17x18/3х4_6z_7x8_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg73">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_7x8_17z_17x18/4х5_6z_7x8_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg74">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_7x8_17z_17x18/5х6_6z_7x8_17z_17x18.png" alt="image">
+    </div>
+
+
+
+
+    <!-- []_6z_8x9_17z_17x18 -->
+    <div *ngIf="showImg75">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_8x9_17z_17x18/0х1_6z_8x9_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg76">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_8x9_17z_17x18/1х2_6z_8x9_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg77">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_8x9_17z_17x18/2х3_6z_8x9_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg78">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_8x9_17z_17x18/3х4_6z_8x9_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg79">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_8x9_17z_17x18/4х5_6z_8x9_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg80">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_8x9_17z_17x18/5х6_6z_8x9_17z_17x18.png" alt="image">
+    </div>
+
+
+
+
+
+    <!-- []_6z_9x10_17z_17x18 -->
+    <div *ngIf="showImg81">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_9x10_17z_17x18/0х1_6z_9x10_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg82">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_9x10_17z_17x18/1х2_6z_9x10_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg83">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_9x10_17z_17x18/2х3_6z_9x10_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg84">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_9x10_17z_17x18/3х4_6z_9x10_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg85">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_9x10_17z_17x18/4х5_6z_9x10_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg86">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_9x10_17z_17x18/5х6_6z_9x10_17z_17x18.png" alt="image">
+    </div>
+
+
+
+
+    <!-- []_6z_10х11_17z_17x18 -->
+    <div *ngIf="showImg87">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_10х11_17z_17x18/0х1_6z_10x11_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg88">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_10х11_17z_17x18/1х2_6z_10x11_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg89">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_10х11_17z_17x18/2х3_6z_10x11_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg90">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_10х11_17z_17x18/3х4_6z_10x11_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg91">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_10х11_17z_17x18/4х5_6z_10x11_17z_17x18.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg92">
+      <img class="margin-left4" src="/assets/img/17/[]_6z_[х]_17z_17x18/[]_6z_10х11_17z_17x18/5х6_6z_10x11_17z_17x18.png" alt="image">
+    </div>
+
+
+
+
+    <!-- 1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_13x14 -->
+    <div *ngIf="showImg93">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_13x14/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg94">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_13x14/1х2_3z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg95">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_13x14/1х2_4z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg96">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_13x14/1х2_5z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg97">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_13x14/1х2_6z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg98">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_13x14/1х2_7z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg99">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_13x14/1х2_8z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg100">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_13x14/1х2_9z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+
+
+
+
+    <!-- 1х2_[]z_10x11_13z_14x15 -->
+    <div *ngIf="showImg101">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg102">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_14x15/1х2_3z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg103">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_14x15/1х2_4z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg104">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_14x15/1х2_5z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg105">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_14x15/1х2_6z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg106">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_14x15/1х2_7z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg107">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_14x15/1х2_8z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg108">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_13x14/1х2_[]z_10x11_13z_14x15/1х2_9z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+
+
+
+    <!-- 1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_14x15/2х3_[]z_9x10_13z_14x15/ -->
+    <div *ngIf="showImg109">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_14x15/2х3_[]z_9x10_13z_14x15/2х3_3z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg110">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_14x15/2х3_[]z_9x10_13z_14x15/2х3_4z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg111">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_14x15/2х3_[]z_9x10_13z_14x15/2х3_5z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg112">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_14x15/2х3_[]z_9x10_13z_14x15/2х3_6z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg113">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_14x15/2х3_[]z_9x10_13z_14x15/2х3_7z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg114">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_14x15/2х3_[]z_9x10_13z_14x15/2х3_8z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg115">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_14x15/2х3_[]z_9x10_13z_14x15/2х3_9z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+
+
+
+
+    <!-- 3х4_[]z_9x10_13z_14x15 -->
+    <div *ngIf="showImg116">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_14x15/3х4_[]z_9x10_13z_14x15/3х4_4z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg117">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_14x15/3х4_[]z_9x10_13z_14x15/3х4_5z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg118">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_14x15/3х4_[]z_9x10_13z_14x15/3х4_6z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg119">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_14x15/3х4_[]z_9x10_13z_14x15/3х4_7z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg120">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_14x15/3х4_[]z_9x10_13z_14x15/3х4_8z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg121">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2-8х9_[]z_10x11_13z_14x15/3х4_[]z_9x10_13z_14x15/3х4_9z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+
+
+    <!-- 4х5_[]z_9x10_13z_14x15 -->
+    <div *ngIf="showImg122">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/4х5_[]z_9x10_13z_14x15/4х5_5z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg123">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/4х5_[]z_9x10_13z_14x15/4х5_6z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg124">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/4х5_[]z_9x10_13z_14x15/4х5_7z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg125">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/4х5_[]z_9x10_13z_14x15/4х5_8z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg126">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/4х5_[]z_9x10_13z_14x15/4х5_9z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+
+    <!-- 5х6_[]z_9x10_13z_14x15 -->
+    <div *ngIf="showImg127">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/5х6_[]z_9x10_13z_14x15/5х6_6z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg128">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/5х6_[]z_9x10_13z_14x15/5х6_7z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg129">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/5х6_[]z_9x10_13z_14x15/5х6_8z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg130">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/5х6_[]z_9x10_13z_14x15/5х6_9z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+
+    <!-- 6х7_[]z_9x10_13z_14x15 -->
+    <div *ngIf="showImg131">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/6х7_[]z_9x10_13z_14x15/6х7_7z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg132">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/6х7_[]z_9x10_13z_14x15/6х7_8z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg133">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/6х7_[]z_9x10_13z_14x15/6х7_9z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+
+
+
+    <!-- 7х8_[]z_9x10_13z_14x15 -->
+    <div *ngIf="showImg134">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/7х8_[]z_9x10_13z_14x15/7х8_8z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+    <div *ngIf="showImg135">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/7х8_[]z_9x10_13z_14x15/7х8_9z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+
+
+    <!-- 8х9_[]z_9x10_13z_14x15 -->
+    <div *ngIf="showImg136">
+      <img class="margin-left4" src="/assets/img/17/1х2-8х9_[]z_10x11_13z_[x]/1х2_[]z_10x11_13z_14x15/8х9_[]z_9x10_13z_14x15/8х9_8z_9x10_13z_14x15.png" alt="image">
+    </div>
+
+
+
+
+
+
+
+    <!-- 7х8_[]z_9x10_13z_14x15 -->
+    <div *ngIf="showImg137">
+      <img class="margin-left4" src="/assets/img/1х2-8х9_[]z_10x11_13z_14x15/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!-- 1х2_[]z_10x11_13z_14x15 -->
+    <div *ngIf="showImg138">
+      <img class="margin-left4" src="/assets/img/1х2-8х9_[]z_10x11_13z_14x15/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!-- 1х2_[]z_10x11_13z_14x15 -->
+    <div *ngIf="showImg139">
+      <img class="margin-left4" src="/assets/img/1х2-8х9_[]z_10x11_13z_14x15/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!-- 1х2_[]z_10x11_13z_14x15 -->
+    <div *ngIf="showImg140">
+      <img class="margin-left4" src="/assets/img/1х2-8х9_[]z_10x11_13z_14x15/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!-- 1х2_[]z_10x11_13z_14x15 -->
+    <div *ngIf="showImg141">
+      <img class="margin-left4" src="/assets/img/1х2-8х9_[]z_10x11_13z_14x15/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!-- 1х2_[]z_10x11_13z_14x15 -->
+    <div *ngIf="showImg142">
+      <img class="margin-left4" src="/assets/img/1х2-8х9_[]z_10x11_13z_14x15/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!-- 1х2_[]z_10x11_13z_14x15 -->
+    <div *ngIf="showImg143">
+      <img class="margin-left4" src="/assets/img/1х2-8х9_[]z_10x11_13z_14x15/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!-- 1х2_[]z_10x11_13z_14x15 -->
+    <div *ngIf="showImg144">
+      <img class="margin-left4" src="/assets/img/1х2-8х9_[]z_10x11_13z_14x15/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!-- 1х2_[]z_10x11_13z_14x15 -->
+    <div *ngIf="showImg145">
+      <img class="margin-left4" src="/assets/img/1х2-8х9_[]z_10x11_13z_14x15/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!-- 1х2_[]z_10x11_13z_14x15 -->
+    <div *ngIf="showImg146">
+      <img class="margin-left4" src="/assets/img/1х2-8х9_[]z_10x11_13z_14x15/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!-- 1х2_[]z_10x11_13z_14x15 -->
+    <div *ngIf="showImg147">
+      <img class="margin-left4" src="/assets/img/1х2-8х9_[]z_10x11_13z_14x15/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!-- 1х2_[]z_10x11_13z_14x15 -->
+    <div *ngIf="showImg148">
+      <img class="margin-left4" src="/assets/img/1х2-8х9_[]z_10x11_13z_14x15/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!-- 1х2_[]z_10x11_13z_14x15 -->
+    <div *ngIf="showImg149">
+      <img class="margin-left4" src="/assets/img/1х2-8х9_[]z_10x11_13z_14x15/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+    <!-- 1х2_[]z_10x11_13z_14x15 -->
+    <div *ngIf="showImg150">
+      <img class="margin-left4" src="/assets/img/1х2-8х9_[]z_10x11_13z_14x15/1х2_[]z_10x11_13z_14x15/1х2_2z_10x11_13z_14x15.png" alt="image">
+    </div>
+
+
+
+
+
+    <br />
+    <br />
+  </form>
+</div>
+
+
+<!--
+<canvas id="myCanvas" width="200" height="100"
+        style="border:1px solid #000000;">
+  Your browser does not support HTML5
+</canvas>
+-->

@@ -1,0 +1,1005 @@
+<h1 class="margin-left05">Нагрузки</h1>
+<br />
+<p class="margin-left1">Нагрузка на неподвижные опоры</p>
+<br />
+<br />
+<!--
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th>          </th>
+      <th>#НO</th>
+      <th>Нагрузка, кгс</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<br />
+<p>Рассчитанный максимальный осевой ход компенсаторов</p>
+<br />
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th></th>
+      <th>#Копменсатор</th>
+      <th>Осевой ход, мм</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<br />
+<form [formGroup]="myForm">
+  <div class="title">
+  </div>
+  <div class="settings">
+    <p>Параметры вертикального трубопровода:</p>
+    <br />
+    <br />
+  </div>
+-->
+<!--
+  <div class="combobox">
+    <input type="text"
+           placeholder="Введите тип трубопровода"
+           class="combobox-input"
+           [(ngModel)]="inputItem"
+           (ngModelChange)="getFilteredList()"
+           (keyup)="onKeyPress($event)"
+           (blur)="toggleListDisplay(0)"
+           (focus)="toggleListDisplay(1)"
+           [ngClass]="{'error': showError}">
+    <i *ngIf="showError"
+       class="error-text">Invalid Selection.</i>
+
+
+    <div class="combobox-options" *ngIf="!listHidden">
+      <list-item *ngFor="let item of filteredList;let i = index"
+                 [ngClass]="{'selected': i===selectedIndex}"
+                 (click)="selectItem(i)">
+        {{item}}
+      </list-item>
+    </div>
+  </div>
+-->
+<form [formGroup]="myForm">
+  <!--1-->
+  <p class="margin-left2">1. Рассчитанный максимальный осевой ход компенсаторов</p>
+  <label class="margin-left3"> Неподвижная опоре </label>
+  <br />
+  <input class="input_width margin-left4" type="text" id="fixedSupport1" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport1" />
+  <br />
+  <br />
+  <label class="margin-left3"> Нагрузка (кгс) </label>
+  <br />
+  <input class="input_width margin-left4" type="text" id="workload1" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload1" />
+  <br />
+  <br />
+  <p class="margin-left2">1. Параметры вертикального трубопровода:</p>
+  <label class="margin-left3"> Компенсатор</label>
+  <br />
+  <input class="input_width margin-left4" type="text" id="compensator1" placeholder="Введите информацию о компенсаторе" formControlName="compensator1" />
+  <br />
+  <br />
+  <label class="margin-left3"> Осевой ход  </label>
+  <br />
+  <input class="input_width margin-left4" type="text" id="axialStroke1" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke1" />
+  <br />
+  <br />
+
+  <button *ngIf="showBtnAddResult2" class="margin-left4" (click)="addResult2()">Добавить запись</button>
+
+  <!--2-->
+  <div *ngIf="showAddResult2">
+    <br />
+    <br />
+    <p class="margin-left2">2. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport2" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport2" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload2" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload2" />
+
+    <br />
+    <br />
+    <p class="margin-left2">2. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator2" placeholder="Введите информацию о компенсаторе" formControlName="compensator2" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke2" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke2" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult3" class="margin-left4" (click)="addResult3()">Добавить запись</button>
+
+  <!--3-->
+  <div *ngIf="showAddResult3">
+    <br />
+    <br />
+    <p class="margin-left2">3. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport3" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport3" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload3" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload3" />
+    <br />
+    <br />
+
+    <p class="margin-left2">3. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator3" placeholder="Введите информацию о компенсаторе" formControlName="compensator3" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke3" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke3" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult4" class="margin-left4" (click)="addResult4()">Добавить запись</button>
+
+  <!--4-->
+  <div *ngIf="showAddResult4">
+    <br />
+    <br />
+    <p class="margin-left2">4. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport4" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport4" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload4" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload4" />
+
+    <br />
+    <br />
+    <p class="margin-left2">4. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator4" placeholder="Введите информацию о компенсаторе" formControlName="compensator4" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke4" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke4" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult5" class="margin-left4" (click)="addResult5()">Добавить запись</button>
+
+  <!--5-->
+  <div *ngIf="showAddResult5">
+    <br />
+    <br />
+    <p class="margin-left2">5. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport5" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport5" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload5" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload5" />
+
+    <br />
+    <br />
+    <p class="margin-left2">5. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator5" placeholder="Введите информацию о компенсаторе" formControlName="compensator5" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke5" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke5" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult6" class="margin-left4" (click)="addResult6()">Добавить запись</button>
+
+  <!--6-->
+  <div *ngIf="showAddResult6">
+    <br />
+    <br />
+    <p class="margin-left2">6. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport6" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport1" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload6" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload1" />
+
+
+    <br />
+    <br />
+    <p class="margin-left2">6. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator6" placeholder="Введите информацию о компенсаторе" formControlName="compensator1" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke6" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke1" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult7" class="margin-left4" (click)="addResult7()">Добавить запись</button>
+
+  <!--7-->
+  <div *ngIf="showAddResult7">
+    <br />
+    <br />
+    <p class="margin-left2">7. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport7" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport2" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload7" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload2" />
+
+    <br />
+    <br />
+    <p class="margin-left2">7. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator7" placeholder="Введите информацию о компенсаторе" formControlName="compensator2" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke7" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke2" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult8" class="margin-left4" (click)="addResult8()">Добавить запись</button>
+
+  <!--8-->
+  <div *ngIf="showAddResult8">
+    <br />
+    <br />
+    <p class="margin-left2">8. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport8" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport3" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload8" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload3" />
+
+    <br />
+    <br />
+    <p class="margin-left2">8. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator8" placeholder="Введите информацию о компенсаторе" formControlName="compensator3" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke8" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke3" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult9" class="margin-left4" (click)="addResult9()">Добавить запись</button>
+
+  <!--9-->
+  <div *ngIf="showAddResult9">
+    <br />
+    <br />
+    <p class="margin-left2">9. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport9" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport4" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload9" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload4" />
+
+    <br />
+    <br />
+    <p class="margin-left2">9. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator9" placeholder="Введите информацию о компенсаторе" formControlName="compensator4" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke9" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke4" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult10" class="margin-left4" (click)="addResult10()">Добавить запись</button>
+
+  <!--10-->
+  <div *ngIf="showAddResult10">
+    <br />
+    <br />
+    <p class="margin-left2">10. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport10" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport5" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload10" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload5" />
+
+    <br />
+    <br />
+    <p class="margin-left2">10. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator10" placeholder="Введите информацию о компенсаторе" formControlName="compensator5" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke10" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke5" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult11" class="margin-left4" (click)="addResult11()">Добавить запись</button>
+
+  <!--11-->
+  <div *ngIf="showAddResult11">
+    <br />
+    <br />
+    <p class="margin-left2">11. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport11" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport1" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload11" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload1" />
+
+    <br />
+    <br />
+    <p class="margin-left2">11. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator11" placeholder="Введите информацию о компенсаторе" formControlName="compensator1" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke11" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke1" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult12" class="margin-left4" (click)="addResult12()">Добавить запись</button>
+
+  <!--12-->
+  <div *ngIf="showAddResult12">
+    <br />
+    <br />
+    <p class="margin-left2">12. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport12" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport2" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload12" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload2" />
+
+    <br />
+    <br />
+    <p class="margin-left2">12. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator12" placeholder="Введите информацию о компенсаторе" formControlName="compensator2" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke12" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke2" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult13" class="margin-left4" (click)="addResult13()">Добавить запись</button>
+
+  <!--13-->
+  <div *ngIf="showAddResult13">
+    <br />
+    <br />
+    <p class="margin-left2">13. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport13" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport3" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload13" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload3" />
+
+    <br />
+    <br />
+    <p class="margin-left2">13. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator13" placeholder="Введите информацию о компенсаторе" formControlName="compensator3" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke13" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke3" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult14" class="margin-left4" (click)="addResult14()">Добавить запись</button>
+
+  <!--14-->
+  <div *ngIf="showAddResult14">
+    <br />
+    <br />
+    <p class="margin-left2">14. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport14" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport4" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload14" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload4" />
+
+    <br />
+    <br />
+    <p class="margin-left2">14. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator14" placeholder="Введите информацию о компенсаторе" formControlName="compensator4" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke14" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke4" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult15" class="margin-left4" (click)="addResult15()">Добавить запись</button>
+
+  <!--15-->
+  <div *ngIf="showAddResult15">
+    <br />
+    <br />
+    <p class="margin-left2">15. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport15" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport5" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload15" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload5" />
+
+    <br />
+    <br />
+    <p class="margin-left2">15. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator15" placeholder="Введите информацию о компенсаторе" formControlName="compensator5" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke15" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke5" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult16" class="margin-left4" (click)="addResult16()">Добавить запись</button>
+
+
+  <!--16-->
+  <div *ngIf="showAddResult16">
+    <br />
+    <br />
+    <p class="margin-left2">16. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport16" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport1" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload16" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload1" />
+
+    <br />
+    <br />
+    <p class="margin-left2">16. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3">Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator16" placeholder="Введите информацию о компенсаторе" formControlName="compensator1" />
+    <br />
+    <br />
+    <label class="margin-left3">Осевой ход</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke16" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke1" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult17" class="margin-left4" (click)="addResult17()">Добавить запись</button>
+
+  <!--17-->
+  <div *ngIf="showAddResult17">
+    <br />
+    <br />
+    <p class="margin-left2">17. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport17" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport2" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload17" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload2" />
+
+    <br />
+    <br />
+    <p class="margin-left2">17. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator17" placeholder="Введите информацию о компенсаторе" formControlName="compensator2" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke17" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke2" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult18" class="margin-left4" (click)="addResult18()">Добавить запись</button>
+
+  <!--18-->
+  <div *ngIf="showAddResult18">
+    <br />
+    <br />
+    <p class="margin-left2">18. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport18" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport3" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload18" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload3" />
+
+    <br />
+    <br />
+    <p class="margin-left2">18. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator18" placeholder="Введите информацию о компенсаторе" formControlName="compensator3" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke18" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke3" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult19" class="margin-left4" (click)="addResult19()">Добавить запись</button>
+
+  <!--19-->
+  <div *ngIf="showAddResult19">
+    <br />
+    <br />
+    <p class="margin-left2">19. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport19" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport4" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload19" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload4" />
+
+    <br />
+    <br />
+    <p class="margin-left2">19. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator19" placeholder="Введите информацию о компенсаторе" formControlName="compensator4" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke19" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke4" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult20" class="margin-left4" (click)="addResult20()">Добавить запись</button>
+
+  <!--20-->
+  <div *ngIf="showAddResult20">
+    <br />
+    <br />
+    <p class="margin-left2">20. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport20" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport5" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload20" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload5" />
+
+    <br />
+    <br />
+    <p class="margin-left2">20. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator20" placeholder="Введите информацию о компенсаторе" formControlName="compensator5" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke20" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke5" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult21" class="margin-left4" (click)="addResult21()">Добавить запись</button>
+
+  <!--21-->
+  <div *ngIf="showAddResult21">
+    <br />
+    <br />
+    <p class="margin-left2">21. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport21" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport1" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload21" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload1" />
+
+    <br />
+    <br />
+    <p class="margin-left2">21. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator21" placeholder="Введите информацию о компенсаторе" formControlName="compensator1" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke21" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke1" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult22" class="margin-left4" (click)="addResult22()">Добавить запись</button>
+
+  <!--22-->
+  <div *ngIf="showAddResult22">
+    <br />
+    <br />
+    <p class="margin-left2">22. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport22" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport2" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload22" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload2" />
+
+    <br />
+    <br />
+    <p class="margin-left2">22. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator22" placeholder="Введите информацию о компенсаторе" formControlName="compensator2" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke22" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke2" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult23" class="margin-left4" (click)="addResult23()">Добавить запись</button>
+
+  <!--23-->
+  <div *ngIf="showAddResult23">
+    <br />
+    <br />
+    <p class="margin-left2">23. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport23" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport3" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload23" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload3" />
+
+    <br />
+    <br />
+    <p class="margin-left2">23. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator23" placeholder="Введите информацию о компенсаторе" formControlName="compensator3" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke23" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke3" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult24" class="margin-left4" (click)="addResult24()">Добавить запись</button>
+
+  <!--24-->
+  <div *ngIf="showAddResult24">
+    <br />
+    <br />
+    <p class="margin-left2">24. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport24" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport4" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload24" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload4" />
+
+    <br />
+    <br />
+    <p class="margin-left2">24. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator24" placeholder="Введите информацию о компенсаторе" formControlName="compensator4" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke24" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke4" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult25" class="margin-left4" (click)="addResult25()">Добавить запись</button>
+
+  <!--25-->
+  <div *ngIf="showAddResult25">
+    <br />
+    <br />
+    <p class="margin-left2">25. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport25" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport5" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload25" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload5" />
+
+    <br />
+    <br />
+    <p class="margin-left2">25. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator25" placeholder="Введите информацию о компенсаторе" formControlName="compensator5" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke25" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke5" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult26" class="margin-left4" (click)="addResult26()">Добавить запись</button>
+
+  <!--26-->
+  <div *ngIf="showAddResult26">
+    <br />
+    <br />
+    <p class="margin-left2">26. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport26" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport1" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload26" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload1" />
+
+    <br />
+    <br />
+    <p class="margin-left2">26. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator26" placeholder="Введите информацию о компенсаторе" formControlName="compensator1" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke26" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke1" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult27" class="margin-left4" (click)="addResult27()">Добавить запись</button>
+
+  <!--27-->
+  <div *ngIf="showAddResult27">
+    <br />
+    <br />
+    <p class="margin-left2">27. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport27" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport2" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload27" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload2" />
+
+    <br />
+    <br />
+    <p class="margin-left2">27. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator27" placeholder="Введите информацию о компенсаторе" formControlName="compensator2" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke27" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke2" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult28" class="margin-left4" (click)="addResult28()">Добавить запись</button>
+
+  <!--28-->
+  <div *ngIf="showAddResult28">
+    <br />
+    <br />
+    <p class="margin-left2">28. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport28" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport3" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload28" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload3" />
+
+    <br />
+    <br />
+    <p class="margin-left2">28. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator28" placeholder="Введите информацию о компенсаторе" formControlName="compensator3" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke28" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke3" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult29" class="margin-left4" (click)="addResult29()">Добавить запись</button>
+
+  <!--29-->
+  <div *ngIf="showAddResult29">
+    <br />
+    <br />
+    <p class="margin-left2">29. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport29" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport4" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload29" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload4" />
+ 
+    <br />
+    <br />
+    <p class="margin-left2">29. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator29" placeholder="Введите информацию о компенсаторе" formControlName="compensator4" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход  </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke29" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke4" />
+    <br />
+    <br />
+  </div>
+
+  <button *ngIf="showBtnAddResult30" class="margin-left4" (click)="addResult30()">Добавить запись</button>
+
+  <!--30-->
+  <div *ngIf="showAddResult30">
+    <br />
+    <br />
+    <p class="margin-left2">30. Рассчитанный максимальный осевой ход компенсаторов</p>
+    <label class="margin-left3"> Неподвижная опоре </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="fixedSupport30" placeholder="Введите информацию о неподвижной опоре" formControlName="fixedSupport5" />
+    <br />
+    <br />
+    <label class="margin-left3"> Нагрузка (кгс) </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="workload30" placeholder="Введите информацию о нагрузке (кгс)" formControlName="workload5" />
+
+    <br />
+    <br />
+    <p class="margin-left2">30. Параметры вертикального трубопровода:</p>
+    <label class="margin-left3"> Компенсатор</label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="compensator30" placeholder="Введите информацию о компенсаторе" formControlName="compensator5" />
+    <br />
+    <br />
+    <label class="margin-left3"> Осевой ход </label>
+    <br />
+    <input class="input_width margin-left4" type="text" id="axialStroke30" placeholder="Введите информацию о неподвижной опоре" formControlName="axialStroke5" />
+    <br />
+    <br />
+  </div>
+</form>
+<br />
+<br />

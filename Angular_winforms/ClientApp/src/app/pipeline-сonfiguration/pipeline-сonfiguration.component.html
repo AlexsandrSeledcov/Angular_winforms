@@ -1,0 +1,1379 @@
+<h1 class="margin-left1" id="tableLabel">Конфигурация трубопровода</h1>
+
+<p class="margin-left1">Конфигурация трубопровода</p>
+<!--
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+
+      <thead>
+        <tr>
+          <th>Участок</th>
+          <th>Диаметр трубопровода</th>
+          <th>Длинна, м</th>
+          <th>Начальный этаж</th>
+          <th>Конечный этаж</th>
+          <th>Высота этажа</th>
+          <th>Допустимое смещение точек врезки</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let forecast of forecasts">
+        <td>{{ forecast.date }}</td>
+        <td>{{ forecast.temperatureC }}</td>
+        <td>{{ forecast.temperatureF }}</td>
+        <td>{{ forecast.summary }}</td>
+        <td>{{ forecast.temperatureC }}</td>
+        <td>{{ forecast.temperatureF }}</td>
+        <td>{{ forecast.summary }}</td>
+      </tr>
+
+    </tbody>
+</table>
+-->
+<form [formGroup]="myForm">
+
+  <label class="margin-left2">Участок</label>
+  <br />
+  <input class="margin-left3" type="text" id="Region1" formControlName="Region1" />
+  <br />
+  <br />
+  <label class="margin-left2">Диаметр трубопровода</label>
+  <br />
+  <input class="margin-left3" type="text" id="PipelineDiameter1" formControlName="PipelineDiameter1" />
+  <br />
+  <br />
+  <label class="margin-left2">Длина, (метры)</label>
+  <br />
+  <input class="margin-left3" type="text" id="LengthField1" formControlName="LengthField1" />
+  <br />
+  <br />
+  <label class="margin-left2">Начальный этаж</label>
+  <br />
+  <input class="margin-left3" type="text" id="GroundFloor1" formControlName="GroundFloor1" />
+  <br />
+  <br />
+  <label class="margin-left2">Общие число этажей</label>
+  <br />
+  <input class="margin-left3" type="text" id="FinalFloor1" formControlName="FinalFloor1" />
+  <br />
+  <br />
+  <label class="margin-left2">Общие число этажей</label>
+  <br />
+  <input class="margin-left3" type="text" id="FloorHeight1" formControlName="FloorHeight1" />
+  <br />
+  <br />
+  <label class="margin-left2">Общие число этажей</label>
+  <br />
+  <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints1" formControlName="AcceptableOffsetOfTheInsetPoints1" />
+  <br />
+  <br />
+
+  <button class="margin-left4" *ngIf="showBtnAddResult2" (click)="addResult2()">Добавить запись</button>
+
+  <!--2-->
+  <div *ngIf="showAddResult2">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region2" formControlName="Region2" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter2" formControlName="PipelineDiameter2" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField2" formControlName="Length2" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor2" formControlName="GroundFloor2" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor2" formControlName="FinalFloor2" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight2" formControlName="FloorHeight2" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints2" formControlName="AcceptableOffsetOfTheInsetPoints2" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult3" (click)="addResult3()">Добавить запись</button>
+
+  <!--3-->
+  <div *ngIf="showAddResult3">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region3" formControlName="Region3" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter3" formControlName="PipelineDiameter3" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField3" formControlName="Length3" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor3" formControlName="GroundFloor3" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor3" formControlName="FinalFloor3" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight3" formControlName="FloorHeight3" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints3" formControlName="AcceptableOffsetOfTheInsetPoints3" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult4" (click)="addResult4()">Добавить запись</button>
+
+  <!--4-->
+  <div *ngIf="showAddResult4">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region4" formControlName="Region4" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter4" formControlName="PipelineDiameter4" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField4" formControlName="Length4" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor4" formControlName="GroundFloor4" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor4" formControlName="FinalFloor4" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight4" formControlName="FloorHeight4" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints4" formControlName="AcceptableOffsetOfTheInsetPoints4" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult5" (click)="addResult5()">Добавить запись</button>
+
+  <!--5-->
+  <div *ngIf="showAddResult5">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region5" formControlName="Region5" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter5" formControlName="PipelineDiameter5" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField5" formControlName="Length5" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor5" formControlName="GroundFloor5" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor5" formControlName="FinalFloor5" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight5" formControlName="FloorHeight5" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints5" formControlName="AcceptableOffsetOfTheInsetPoints5" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult6" (click)="addResult6()">Добавить запись</button>
+
+  <!--6-->
+  <div *ngIf="showAddResult6">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region6" formControlName="Region6" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter6" formControlName="PipelineDiameter6" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField6" formControlName="Length6" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor6" formControlName="GroundFloor6" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor6" formControlName="FinalFloor6" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight6" formControlName="FloorHeight6" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints6" formControlName="AcceptableOffsetOfTheInsetPoints6" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult7" (click)="addResult7()">Добавить запись</button>
+
+  <!--7-->
+  <div *ngIf="showAddResult7">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region7" formControlName="Region7" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter7" formControlName="PipelineDiameter7" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField7" formControlName="Length7" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor7" formControlName="GroundFloor7" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor7" formControlName="FinalFloor7" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight7" formControlName="FloorHeight7" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints7" formControlName="AcceptableOffsetOfTheInsetPoints7" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult8" (click)="addResult8()">Добавить запись</button>
+
+  <!--8-->
+  <div *ngIf="showAddResult8">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region8" formControlName="Region8" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter8" formControlName="PipelineDiameter8" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField8" formControlName="Length8" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor8" formControlName="GroundFloor8" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor8" formControlName="FinalFloor8" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight8" formControlName="FloorHeight8" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints8" formControlName="AcceptableOffsetOfTheInsetPoints8" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult9" (click)="addResult9()">Добавить запись</button>
+
+  <!--9-->
+  <div *ngIf="showAddResult9">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region9" formControlName="Region9" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter2" formControlName="PipelineDiameter2" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField9" formControlName="Length9" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor9" formControlName="GroundFloor9" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor9" formControlName="FinalFloor9" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight9" formControlName="FloorHeight9" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints9" formControlName="AcceptableOffsetOfTheInsetPoints9" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult10" (click)="addResult10()">Добавить запись</button>
+
+  <!--10-->
+  <div *ngIf="showAddResult10">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region10" formControlName="Region10" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter10" formControlName="PipelineDiameter10" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField10" formControlName="Length10" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor10" formControlName="GroundFloor10" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor10" formControlName="FinalFloor10" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3"  type="text" id="FloorHeight10" formControlName="FloorHeight10" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3"  type="text" id="AcceptableOffsetOfTheInsetPoints10" formControlName="AcceptableOffsetOfTheInsetPoints10" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult11" (click)="addResult11()">Добавить запись</button>
+
+  <!--11-->
+  <div *ngIf="showAddResult11">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3"  type="text" id="Region11" formControlName="Region11" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter11" formControlName="PipelineDiameter11" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3"  type="text" id="LengthField11" formControlName="Length11" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3"  type="text" id="GroundFloor11" formControlName="GroundFloor11" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3"  type="text" id="FinalFloor11" formControlName="FinalFloor11" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3"   type="text" id="FloorHeight11" formControlName="FloorHeight11" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3"  type="text" id="AcceptableOffsetOfTheInsetPoints11" formControlName="AcceptableOffsetOfTheInsetPoints11" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult12" (click)="addResult12()">Добавить запись</button>
+
+  <!--12-->
+  <div *ngIf="showAddResult12">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region12" formControlName="Region12" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3"  type="text" id="PipelineDiameter12" formControlName="PipelineDiameter12" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3"  type="text" id="LengthField12" formControlName="Length12" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3"  type="text" id="GroundFloor12" formControlName="GroundFloor12" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3"  type="text" id="FinalFloor12" formControlName="FinalFloor12" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3"  type="text" id="FloorHeight12" formControlName="FloorHeight12" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3"  type="text" id="AcceptableOffsetOfTheInsetPoints12" formControlName="AcceptableOffsetOfTheInsetPoints12" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult13" (click)="addResult13()">Добавить запись</button>
+
+  <!--13-->
+  <div *ngIf="showAddResult13">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3"  type="text" id="Region13" formControlName="Region13" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3"  type="text" id="PipelineDiameter13" formControlName="PipelineDiameter13" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3"  type="text" id="LengthField13" formControlName="Length13" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3"  type="text" id="GroundFloor13" formControlName="GroundFloor13" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3"  type="text" id="FinalFloor13" formControlName="FinalFloor13" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight13" formControlName="FloorHeight13" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3"  type="text" id="AcceptableOffsetOfTheInsetPoints13" formControlName="AcceptableOffsetOfTheInsetPoints13" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult14" (click)="addResult14()">Добавить запись</button>
+
+  <!--14-->
+  <div *ngIf="showAddResult14">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3"  type="text" id="Region14" formControlName="Region14" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3"  type="text" id="PipelineDiameter14" formControlName="PipelineDiameter14" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3"  type="text" id="LengthField14" formControlName="Length14" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3"  type="text" id="GroundFloor14" formControlName="GroundFloor14" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3"  type="text" id="FinalFloor14" formControlName="FinalFloor14" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3"  type="text" id="FloorHeight14" formControlName="FloorHeight14" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints14" formControlName="AcceptableOffsetOfTheInsetPoints14" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult15" (click)="addResult15()">Добавить запись</button>
+
+  <!--15-->
+  <div *ngIf="showAddResult15">
+    <br />
+    <br />
+    <label  class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3"  type="text" id="Region15" formControlName="Region15" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3"  type="text" id="PipelineDiameter15" formControlName="PipelineDiameter15" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3"  type="text" id="LengthField15" formControlName="Length15" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor15" formControlName="GroundFloor15" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor15" formControlName="FinalFloor15" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight15" formControlName="FloorHeight15" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints15" formControlName="AcceptableOffsetOfTheInsetPoints15" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult16" (click)="addResult16()">Добавить запись</button>
+
+  <!--16-->
+  <div *ngIf="showAddResult16">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region16" formControlName="Region16" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter16" formControlName="PipelineDiameter16" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField16" formControlName="Length16" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor16" formControlName="GroundFloor16" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor16" formControlName="FinalFloor16" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight16" formControlName="FloorHeight16" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints16" formControlName="AcceptableOffsetOfTheInsetPoints16" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult17" (click)="addResult17()">Добавить запись</button>
+
+  <!--17-->
+  <div *ngIf="showAddResult17">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region17" formControlName="Region17" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter17" formControlName="PipelineDiameter17" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField17" formControlName="Length17" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor17" formControlName="GroundFloor17" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor17" formControlName="FinalFloor17" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight17" formControlName="FloorHeight17" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints17" formControlName="AcceptableOffsetOfTheInsetPoints17" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult18" (click)="addResult18()">Добавить запись</button>
+
+  <!--18-->
+  <div *ngIf="showAddResult18">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3"  type="text" id="Region18" formControlName="Region18" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter18" formControlName="PipelineDiameter18" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField18" formControlName="Length18" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor18" formControlName="GroundFloor18" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor18" formControlName="FinalFloor18" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight18" formControlName="FloorHeight18" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints18" formControlName="AcceptableOffsetOfTheInsetPoints18" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4"  *ngIf="showBtnAddResult19" (click)="addResult19()">Добавить запись</button>
+
+  <!--19-->
+  <div *ngIf="showAddResult19">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region19" formControlName="Region19" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter19" formControlName="PipelineDiameter19" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField19" formControlName="Length19" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor19" formControlName="GroundFloor19" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor19" formControlName="FinalFloor19" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight19" formControlName="FloorHeight19" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints19" formControlName="AcceptableOffsetOfTheInsetPoints19" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4"  *ngIf="showBtnAddResult20" (click)="addResult20()">Добавить запись</button>
+
+  <!--20-->
+  <div *ngIf="showAddResult20">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region20" formControlName="Region20" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter20" formControlName="PipelineDiameter20" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField20" formControlName="Length20" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor20" formControlName="GroundFloor20" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor20" formControlName="FinalFloor20" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight20" formControlName="FloorHeight20" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints20" formControlName="AcceptableOffsetOfTheInsetPoints20" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult21" (click)="addResult21()">Добавить запись</button>
+
+  <!--21-->
+  <div *ngIf="showAddResult21">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region21" formControlName="Region21" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter21" formControlName="PipelineDiameter21" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField21" formControlName="Length21" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor21" formControlName="GroundFloor21" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor21" formControlName="FinalFloor21" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight21" formControlName="FloorHeight21" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints21" formControlName="AcceptableOffsetOfTheInsetPoints21" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult22" (click)="addResult22()">Добавить запись</button>
+
+  <!--22-->
+  <div *ngIf="showAddResult22">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region22" formControlName="Region22" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter22" formControlName="PipelineDiameter22" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField22" formControlName="Length22" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor22" formControlName="GroundFloor22" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor22" formControlName="FinalFloor22" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight22" formControlName="FloorHeight22" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints22" formControlName="AcceptableOffsetOfTheInsetPoints22" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult23" (click)="addResult23()">Добавить запись</button>
+
+  <!--23-->
+  <div *ngIf="showAddResult23">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region23" formControlName="Region23" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter23" formControlName="PipelineDiameter23" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField23" formControlName="Length23" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor23" formControlName="GroundFloor23" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor23" formControlName="FinalFloor23" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight23" formControlName="FloorHeight23" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints23" formControlName="AcceptableOffsetOfTheInsetPoints23" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult24" (click)="addResult24()">Добавить запись</button>
+
+  <!--24-->
+  <div *ngIf="showAddResult24">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region24" formControlName="Region24" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter24" formControlName="PipelineDiameter24" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField24" formControlName="Length24" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor24" formControlName="GroundFloor24" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor24" formControlName="FinalFloor24" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight24" formControlName="FloorHeight24" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints24" formControlName="AcceptableOffsetOfTheInsetPoints24" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult25" (click)="addResult25()">Добавить запись</button>
+
+  <!--25-->
+  <div *ngIf="showAddResult25">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region25" formControlName="Region25" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter25" formControlName="PipelineDiameter25" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField25" formControlName="Length25" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor25" formControlName="GroundFloor25" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor25" formControlName="FinalFloor25" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight25" formControlName="FloorHeight25" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints25" formControlName="AcceptableOffsetOfTheInsetPoints25" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult26" (click)="addResult26()">Добавить запись</button>
+
+  <!--26-->
+  <div *ngIf="showAddResult26">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region26" formControlName="Region26" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter26" formControlName="PipelineDiameter26" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField2" formControlName="Length2" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor26" formControlName="GroundFloor26" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor26" formControlName="FinalFloor26" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight26" formControlName="FloorHeight26" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints26" formControlName="AcceptableOffsetOfTheInsetPoints26" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult27" (click)="addResult27()">Добавить запись</button>
+
+  <!--27-->
+  <div *ngIf="showAddResult27">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region27" formControlName="Region27" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter27" formControlName="PipelineDiameter27" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField27" formControlName="Length27" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor27" formControlName="GroundFloor27" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor27" formControlName="FinalFloor27" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight27" formControlName="FloorHeight27" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints27" formControlName="AcceptableOffsetOfTheInsetPoints27" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult28" (click)="addResult28()">Добавить запись</button>
+
+  <!--28-->
+  <div *ngIf="showAddResult28">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region28" formControlName="Region28" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter28" formControlName="PipelineDiameter28" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField28" formControlName="Length28" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor28" formControlName="GroundFloor28" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor28" formControlName="FinalFloor28" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight28" formControlName="FloorHeight28" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints28" formControlName="AcceptableOffsetOfTheInsetPoints28" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult29"  (click)="addResult29()">Добавить запись</button>
+
+  <!--29-->
+  <div *ngIf="showAddResult29">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region29" formControlName="Region29" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter29" formControlName="PipelineDiameter29" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField29" formControlName="Length29" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor29" formControlName="GroundFloor29" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor29" formControlName="FinalFloor29" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight29" formControlName="FloorHeight29" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints29" formControlName="AcceptableOffsetOfTheInsetPoints29" />
+    <br />
+    <br />
+  </div>
+
+  <button class="margin-left4" *ngIf="showBtnAddResult30" (click)="addResult30()">Добавить запись</button>
+
+  <!--30-->
+  <div *ngIf="showAddResult30">
+    <br />
+    <br />
+    <label class="margin-left2">Участок</label>
+    <br />
+    <input class="margin-left3" type="text" id="Region30" formControlName="Region30" />
+    <br />
+    <br />
+    <label class="margin-left2">Диаметр трубопровода</label>
+    <br />
+    <input class="margin-left3" type="text" id="PipelineDiameter30" formControlName="PipelineDiameter30" />
+    <br />
+    <br />
+    <label class="margin-left2">Длина, (метры)</label>
+    <br />
+    <input class="margin-left3" type="text" id="LengthField30" formControlName="Length30" />
+    <br />
+    <br />
+    <label class="margin-left2">Начальный этаж</label>
+    <br />
+    <input class="margin-left3" type="text" id="GroundFloor30" formControlName="GroundFloor30" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FinalFloor30" formControlName="FinalFloor30" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="FloorHeight30" formControlName="FloorHeight30" />
+    <br />
+    <br />
+    <label class="margin-left2">Общие число этажей</label>
+    <br />
+    <input class="margin-left3" type="text" id="AcceptableOffsetOfTheInsetPoints30" formControlName="AcceptableOffsetOfTheInsetPoints30" />
+    <br />
+    <br />
+  </div>
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <button type="button" class="button margin-left3 btn btn-primary" (click)="check()">Проверить</button>
+  <br />
+  <br />
+
+  <button type="button" class="button margin-left3 btn btn-primary" (click)="clear()">Очистить форму</button>
+  <br />
+  <br />
+
+  <button type="button" class="button margin-left3 btn btn-primary" (click)="autoSelect()">Авто-выбор</button>
+  <br />
+  <br />
+
+  <label class="margin-left2">Общие число этажей</label>
+  <br />
+  <input class="button margin-left3" disabled type="text" id="totalNumberOfFloors" formControlName="totalNumberOfFloors" readonly />
+  <br />
+  <br />
+  <input class="button margin-left3" #lowerSelfCompensationSectionCheckBox type="checkbox" [checked]="lowerSelfCompensationSection" (change)="manuallySetTheLowerSelfCompensationSection(lowerSelfCompensationSectionCheckBox.checked)" />
+  <label class="margin-left1">Задать вручную нижний участок самокомпенсации</label>
+  <br />
+  <br />
+
+  <input class="button margin-left3" #upperSelfCompensationSectionCheckBox type="checkbox" [checked]="upperSelfCompensationSection" (change)="manuallySetTheUpperSelfCompensationSection(upperSelfCompensationSectionCheckBox.checked)" />
+  <label class="margin-left1">Задать вручную верхний участок самокомпенсации</label>
+  <br />
+  <br />
+</form>
+
+<form [formGroup]="myForm">
+  <label class="margin-left2">Длина, м</label>
+  <br />
+  <input class="margin-left3" [disabled]="val" type="text" id="Length1" formControlName="Length1" readonly />
+  <br />
+  <input class="margin-left3" [disabled]=""    type="text" id="Length2" formControlName="Length2" readonly />
+  <br />
+  <br />
+
+  <label class="margin-left2">Удлинение, мм</label>
+  <br />
+  <input class="margin-left3" [disabled]="" type="text" id="Elongation1" formControlName="Elongation1" readonly />
+  <br />
+  <input class="margin-left3" [disabled]="" type="text" id="Elongation2" formControlName="Elongation2" readonly />
+  <br />
+  <br />
+
+  <label class="margin-left2">Этаж установки неподвижной опоры</label>
+  <br />
+  <input class="margin-left3" [disabled]="val" type="text" id="floorInstallationFixedSupport1" formControlName="floorInstallationFixedSupport1" readonly />
+  <br />
+  <input class="margin-left3" [disabled]=""    type="text" id="floorInstallationFixedSupport2" formControlName="floorInstallationFixedSupport2" readonly />
+  <br />
+  <br />
+  <label class="margin-left2">СТАТУС: </label>
+  <input type="text" class="form-control" id="status" placeholder="" formControlName="status" />
+  <br />
+  <br />
+</form>
